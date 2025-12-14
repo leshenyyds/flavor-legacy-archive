@@ -1,0 +1,32 @@
+/* Protection Page */
+.protection-container {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  line-height: 1.75;
+}
+
+.protection-title {
+  font-size: 2.25rem;
+  font-family: "Noto Serif SC", serif;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.protection-box {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.call-to-action {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+

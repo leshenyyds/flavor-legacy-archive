@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/css/MiscPages.css';
+import '../assets/css/Protection.css';
 
 const Protection = () => (
   <div className="protection-container">

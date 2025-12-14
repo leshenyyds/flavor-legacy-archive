@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionTitle } from '../components/Layout';
-import '../assets/css/MiscPages.css';
+import '../assets/css/Interactive.css';
 
 const Interactive = () => (
   <div className="interactive-container">

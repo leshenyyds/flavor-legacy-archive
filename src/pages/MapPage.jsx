@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionTitle } from '../components/Layout';
-import '../assets/css/MiscPages.css';
+import '../assets/css/MapPage.css';
 
 const MapPage = () => (
   <div className="map-container">
