@@ -1,9 +1,13 @@
 /* About Page */
 .about-container {
-  max-width: 48rem;
+  max-width: 80rem;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding: 2rem 1rem;
+}
+
+.about-section {
   text-align: center;
+  margin-bottom: 3rem;
 }
 
 .about-logo {
@@ -11,7 +15,7 @@
   height: 5rem;
   background-color: var(--primary-color);
   border-radius: 9999px;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,14 +23,219 @@
   font-size: 1.875rem;
   font-family: serif;
   border: 4px solid var(--secondary-color);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.about-mission {
+  max-width: 48rem;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #57534e;
+  text-align: center;
+}
+
+/* Team Section */
+.team-section {
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.section-icon {
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 0;
 }
 
 .team-box {
   background-color: white;
   padding: 2rem;
   border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-  text-align: left;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  border-top: 4px solid var(--secondary-color);
+}
+
+.team-intro {
+  text-align: center;
+  color: #57534e;
+  line-height: 1.8;
   margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e7e5e4;
+}
+
+.team-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #fafaf9;
+  border-radius: 0.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.team-member:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.member-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 0 auto 1rem;
+}
+
+.member-name {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.member-role {
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.member-desc {
+  font-size: 0.875rem;
+  color: #78716c;
+  line-height: 1.6;
+}
+
+/* Features Section */
+.features-section {
+  margin-bottom: 3rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  border-left: 4px solid var(--secondary-color);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+  color: var(--primary-color);
+  margin: 0 auto 1rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.feature-desc {
+  color: #57534e;
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+/* Source Section */
+.source-section {
+  margin-bottom: 2rem;
+}
+
+.source-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  border-top: 4px solid var(--secondary-color);
+  text-align: center;
+}
+
+.source-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.source-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.source-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #57534e;
+  font-size: 0.9375rem;
+}
+
+.source-item svg {
+  color: var(--secondary-color);
+  flex-shrink: 0;
+}
+
+.source-note {
+  font-size: 0.875rem;
+  color: #78716c;
+  line-height: 1.6;
+  padding-top: 1rem;
+  border-top: 1px solid #e7e5e4;
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .source-list {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
 }
 
