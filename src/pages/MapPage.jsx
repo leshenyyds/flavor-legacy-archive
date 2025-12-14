@@ -8,6 +8,7 @@ import '../assets/css/MapPage.css';
 const MapPage = () => {
   const [loading, setLoading] = useState(true);
   const [mapData, setMapData] = useState(null);
+  const [selectedLabel, setSelectedLabel] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,6 +16,10 @@ const MapPage = () => {
         setLoading(true);
         const response = await apiService.getMapData();
         setMapData(response.data);
+        // 默认选中第一个标签
+        if (response.data && response.data.labels && response.data.labels.length > 0) {
+          setSelectedLabel(response.data.labels[0]);
+        }
       } catch (error) {
         console.error('Failed to fetch map data:', error);
       } finally {
@@ -41,35 +46,19 @@ const MapPage = () => {
         {mapData.labels.map(label => (
           <div 
             key={label.id} 
-            className="map-label" 
+            className={`map-label ${selectedLabel?.id === label.id ? 'active' : ''}`}
             style={label.position}
+            onClick={() => setSelectedLabel(label)}
           >
             <strong className="text-red-800 block">{label.title}</strong>
             {label.content}
           </div>
         ))}
       </div>
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-white p-6 rounded shadow">
-          <h3 className="font-bold mb-4">{mapData.analysis.title}</h3>
-          <p className="text-stone-600">{mapData.analysis.content}</p>
-        </div>
-        <div className="bg-white p-6 rounded shadow">
-          <h3 className="font-bold mb-4">{mapData.route.title}</h3>
-          <div className="flex items-center gap-2 text-sm text-stone-700">
-            {mapData.route.days.map((item, index) => (
-              <React.Fragment key={index}>
-                <span 
-                  className="bg-primary text-white px-2 rounded" 
-                  style={{backgroundColor: 'var(--primary-color)'}}
-                >
-                  {item.day}
-                </span>
-                {item.place}
-                {index < mapData.route.days.length - 1 && <span>→</span>}
-              </React.Fragment>
-            ))}
-          </div>
+      <div className="mt-8 flex justify-center">
+        <div className="bg-white p-6 rounded shadow max-w-2xl w-full">
+          <h3 className="font-bold mb-4">{selectedLabel ? `${selectedLabel.title}解析` : '美食带解析'}</h3>
+          <p className="text-stone-600">{selectedLabel?.analysis || '请点击地图上的标签查看解析'}</p>
         </div>
       </div>
     </div>
