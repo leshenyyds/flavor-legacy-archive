@@ -77,7 +77,6 @@ const Stories = () => {
                 <h3 className="story-title">{story.title}</h3>
                 <p className="text-stone-600 text-sm line-clamp-3">{story.content}</p>
               </div>
-              <button className="read-btn">阅读全文</button>
             </div>
           </div>
           ))
