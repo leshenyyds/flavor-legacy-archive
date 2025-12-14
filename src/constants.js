@@ -1,6 +1,9 @@
 import banner1 from './assets/image/Banner1.jpg';
 import banner2 from './assets/image/Banner2.jpg';
 import banner3 from './assets/image/Banner3.jpg';
+import luosifenImg from './assets/image/螺蛳粉.jpg';
+import kaoyaImg from './assets/image/北京烤鸭.jpg';
+import chaofanImg from './assets/image/扬州炒饭.jpg';
 
 export const NAV_LINKS = [
   { name: '首页', path: '/', icon: 'Home' },
@@ -49,7 +52,7 @@ export const HERITAGE_ITEMS = [
     region: '华南',
     year: '2021',
     category: '特色小吃',
-    image: 'https://picsum.photos/400/300?random=1',
+    image: luosifenImg,
     description: '闻着臭，吃着香，酸辣爽口，灵魂在于酸笋。',
     inheritorName: '张师傅',
     details: {
@@ -69,7 +72,7 @@ export const HERITAGE_ITEMS = [
     region: '华北',
     year: '2008',
     category: '烹饪技艺',
-    image: 'https://picsum.photos/400/300?random=2',
+    image: kaoyaImg,
     description: '色泽红润，肉质肥而不腻，外脆里嫩。',
     inheritorName: '刘师傅',
     details: {
@@ -90,7 +93,7 @@ export const HERITAGE_ITEMS = [
     region: '华东',
     year: '2015',
     category: '烹饪技艺',
-    image: 'https://picsum.photos/400/300?random=3',
+    image: chaofanImg,
     description: '方寸炒饭，藏淮扬风味，颗粒分明。',
     inheritorName: '王师傅',
     details: {
