@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { HERITAGE_ITEMS } from '../constants';
 import { PlayCircle, Clock, MapPin, Award } from 'lucide-react';
+import { Breadcrumb } from '../components/Breadcrumb';
 import '../assets/css/Detail.css';
 
 const Detail = () => {
@@ -12,12 +13,16 @@ const Detail = () => {
     return <div className="text-center py-20">未找到该项目 <Link to="/archive" className="text-primary">返回名录</Link></div>;
   }
 
+  const breadcrumbItems = [
+    { label: '首页', to: '/' },
+    { label: '非遗名录', to: '/archive' },
+    { label: item.name }
+  ];
+
   return (
     <div className="detail-container animate-fade-in">
       {/* Breadcrumb */}
-      <div className="breadcrumb">
-        <Link to="/">首页</Link> / <Link to="/archive">非遗名录</Link> / {item.name}
-      </div>
+      <Breadcrumb items={breadcrumbItems} />
 
       {/* Header Info */}
       <div className="info-header">

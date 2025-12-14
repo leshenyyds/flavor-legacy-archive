@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { SectionTitle } from '../components/Layout';
+import { FilterSection } from '../components/FilterSection';
+import { HeritageCard } from '../components/HeritageCard';
 import { HERITAGE_ITEMS } from '../constants';
 import '../assets/css/Archive.css';
 
@@ -21,36 +22,14 @@ const Archive = () => {
       <SectionTitle title="非遗美食总名录" subtitle="搜罗中华大地传承百年的味道" />
 
       {/* Filters */}
-      <div className="filter-section">
-        <div className="filter-group">
-          <span className="filter-label">按类别筛选:</span>
-          <div className="filter-options">
-            {categories.map(c => (
-              <button
-                key={c}
-                onClick={() => setCategoryFilter(c)}
-                className={`filter-btn ${categoryFilter === c ? 'active' : 'inactive'}`}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div className="filter-group">
-          <span className="filter-label">按地域筛选:</span>
-          <div className="filter-options">
-            {regions.map(r => (
-              <button
-                key={r}
-                onClick={() => setRegionFilter(r)}
-                className={`filter-btn ${regionFilter === r ? 'region-active' : 'inactive'}`}
-              >
-                {r}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
+      <FilterSection
+        categoryFilter={categoryFilter}
+        setCategoryFilter={setCategoryFilter}
+        regionFilter={regionFilter}
+        setRegionFilter={setRegionFilter}
+        categories={categories}
+        regions={regions}
+      />
 
       {/* Stats */}
       <div className="stats-bar">
@@ -62,24 +41,7 @@ const Archive = () => {
       {/* Grid */}
       <div className="archive-grid">
         {filteredItems.map(item => (
-          <div key={item.id} className="archive-card">
-            <div className="archive-img-container">
-              <img src={item.image} alt={item.name} className="archive-img" />
-              <div className="archive-level-badge">
-                {item.level}
-              </div>
-            </div>
-            <div className="archive-card-body">
-              <h3 className="archive-card-title">{item.name}</h3>
-              <div className="archive-meta">
-                <span>{item.region}</span>
-                <span>{item.year}入选</span>
-              </div>
-              <Link to={`/detail/${item.id}`} className="view-btn">
-                查看详情
-              </Link>
-            </div>
-          </div>
+          <HeritageCard key={item.id} item={item} variant="archive" />
         ))}
       </div>
       

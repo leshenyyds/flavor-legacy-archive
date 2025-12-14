@@ -5,16 +5,6 @@
   padding: 2rem 1rem;
 }
 
-.breadcrumb {
-  font-size: 0.875rem;
-  color: #78716c;
-  margin-bottom: 1.5rem;
-}
-
-.breadcrumb a:hover {
-  color: var(--primary-color);
-}
-
 /* Header Info */
 .info-header {
   background-color: white;
