@@ -1,4 +1,7 @@
 import luosifenImg from '../image/螺蛳粉.jpg';
+import luosifenImg1 from '../image/螺蛳粉-1.png';
+import luosifenImg2 from '../image/螺蛳粉-2.png';
+import luosifenImg3 from '../image/螺蛳粉-3.png';
 import kaoyaImg from '../image/北京烤鸭.jpg';
 import chaofanImg from '../image/扬州炒饭.jpg';
 import pixiandoubanImg from '../image/郫县豆瓣.jpg';
@@ -16,6 +19,8 @@ export const HERITAGE_ITEMS = [
     inheritorId: '2', 
     details: {
       history: '从街头小吃到非遗，螺蛳粉经历了40年的蜕变。它起源于上世纪70-80年代的柳州夜市。',
+      historyImages: [luosifenImg1, luosifenImg2, luosifenImg3],
+      videoUrl: 'https://www.bilibili.com/video/BV1vV411a7YC/',
       technique: [
         '螺蛳汤熬制：12 小时慢炖，30 余种香料配比',
         '米粉制作：选米 - 磨浆 - 蒸煮 - 榨粉',
@@ -36,6 +41,8 @@ export const HERITAGE_ITEMS = [
     inheritorId: '1',
     details: {
       history: '从宫廷菜到民间名吃，全聚德、便宜坊等老字号见证了其百年历史。',
+      historyImages: [],
+      videoUrl: '',
       technique: [
         '果木选材：必须使用枣木或梨木',
         '鸭坯处理：打气 - 烫皮 - 挂色 - 晾坯',
@@ -57,6 +64,8 @@ export const HERITAGE_ITEMS = [
     inheritorId: '1', 
     details: {
       history: '源于隋朝越国公杨素爱吃的碎金饭。',
+      historyImages: [],
+      videoUrl: '',
       technique: ['选米：籼米', '配料：海参、干贝、虾仁等8种', '火候：武火快炒'],
       culture: '淮扬菜精细做工的代表。'
     }
@@ -73,6 +82,8 @@ export const HERITAGE_ITEMS = [
     inheritorId: '1', 
     details: {
       history: '三百余年历史，川菜味型的基石。',
+      historyImages: [],
+      videoUrl: '',
       technique: ['翻、晒、露：日晒夜露', '发酵周期：长达一年以上'],
       culture: '体现了四川人对滋味的极致追求。'
     }
