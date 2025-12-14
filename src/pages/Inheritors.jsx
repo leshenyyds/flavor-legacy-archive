@@ -1,16 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { SectionTitle } from '../components/Layout';
-import { INHERITORS } from '../constants';
+import Loading from '../components/Loading';
+import { apiService } from '../services/api';
 import { User, Award } from 'lucide-react';
 import '../assets/css/Inheritors.css';
 
-const InheritorList = () => (
-  <div className="inheritor-container">
-    <SectionTitle title="传承人风采" subtitle="非遗技艺的守护者与传播者" />
-    
-    <div className="inheritor-grid">
-      {INHERITORS.map(person => (
+const InheritorList = () => {
+  const [loading, setLoading] = useState(true);
+  const [inheritors, setInheritors] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await apiService.getInheritors();
+        setInheritors(response.data);
+      } catch (error) {
+        console.error('Failed to fetch inheritors:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loading text="正在加载数据..." />;
+  }
+
+  return (
+    <div className="inheritor-container">
+      <SectionTitle title="传承人风采" subtitle="非遗技艺的守护者与传播者" />
+      
+      <div className="inheritor-grid">
+        {inheritors.map(person => (
         <div key={person.id} className="inheritor-card group">
           <div className="inheritor-img-wrap">
              <img src={person.image} alt={person.name} className="inheritor-img" />
@@ -24,41 +49,69 @@ const InheritorList = () => (
             </Link>
           </div>
         </div>
-      ))}
-      {/* Mocking more items to fill grid */}
-      {[3,4,5,6].map(i => (
-         <div key={i} className="placeholder-card">
-           <div className="text-center">
-             <User size={48} className="mx-auto mb-2 opacity-50"/>
-             <p>虚位以待</p>
+        ))}
+        {/* Mocking more items to fill grid */}
+        {[3,4,5,6].map(i => (
+           <div key={i} className="placeholder-card">
+             <div className="text-center">
+               <User size={48} className="mx-auto mb-2 opacity-50"/>
+               <p>虚位以待</p>
+             </div>
            </div>
-         </div>
-      ))}
-    </div>
+          ))}
+        </div>
 
-    <div className="challenges-section">
-      <div className="info-box">
-        <h3 className="text-xl font-bold text-stone-800 mb-4">传承困境</h3>
-        <p className="text-stone-600 mb-4">"现在的年轻人觉得做这个太苦，不愿学。手工制作效率低，成本高，我们在市场竞争中很难。"</p>
-        <p className="font-bold text-right" style={{color: 'var(--primary-color)'}}>— 坚守的理由：不能让老味道断了根。</p>
-      </div>
-      <div className="info-box">
-        <h3 className="text-xl font-bold text-stone-800 mb-4">传承创新</h3>
-        <ul className="list-disc list-inside text-stone-600 space-y-2">
-          <li>非遗月饼结合低糖配方，适应健康潮流</li>
-          <li>非遗面塑做成文创小摆件，走进直播间</li>
-          <li>开展研学体验班，让孩子亲手制作</li>
-        </ul>
+      <div className="challenges-section">
+        <div className="info-box">
+          <h3 className="text-xl font-bold text-stone-800 mb-4">传承困境</h3>
+          <p className="text-stone-600 mb-4">"现在的年轻人觉得做这个太苦，不愿学。手工制作效率低，成本高，我们在市场竞争中很难。"</p>
+          <p className="font-bold text-right" style={{color: 'var(--primary-color)'}}>— 坚守的理由：不能让老味道断了根。</p>
+        </div>
+        <div className="info-box">
+          <h3 className="text-xl font-bold text-stone-800 mb-4">传承创新</h3>
+          <ul className="list-disc list-inside text-stone-600 space-y-2">
+            <li>非遗月饼结合低糖配方，适应健康潮流</li>
+            <li>非遗面塑做成文创小摆件，走进直播间</li>
+            <li>开展研学体验班，让孩子亲手制作</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const InheritorDetail = () => {
   const { id } = useParams();
-  const person = INHERITORS.find(p => p.id === id);
+  const [loading, setLoading] = useState(true);
+  const [person, setPerson] = useState(null);
 
-  if (!person) return <div>Person not found</div>;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await apiService.getInheritorById(id);
+        if (response.data) {
+          setPerson(response.data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch inheritor:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (id) {
+      fetchData();
+    }
+  }, [id]);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (!person) {
+    return <div>Person not found</div>;
+  }
 
   return (
     <div className="profile-container">

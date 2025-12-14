@@ -1,13 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { HERITAGE_ITEMS } from '../constants';
+import { apiService } from '../services/api';
 import { PlayCircle, Clock, MapPin, Award } from 'lucide-react';
 import { Breadcrumb } from '../components/Breadcrumb';
+import Loading from '../components/Loading';
 import '../assets/css/Detail.css';
 
 const Detail = () => {
   const { id } = useParams();
-  const item = HERITAGE_ITEMS.find(i => i.id === id);
+  const [loading, setLoading] = useState(true);
+  const [item, setItem] = useState(null);
+  const [relatedItems, setRelatedItems] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const [itemRes, allItemsRes] = await Promise.all([
+          apiService.getHeritageItemById(id),
+          apiService.getHeritageItems()
+        ]);
+
+        if (itemRes.data) {
+          setItem(itemRes.data);
+          // 获取相关推荐（排除当前项）
+          setRelatedItems(allItemsRes.data.filter(i => i.id !== id).slice(0, 3));
+        }
+      } catch (error) {
+        console.error('Failed to fetch item:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (id) {
+      fetchData();
+    }
+  }, [id]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   if (!item) {
     return <div className="text-center py-20">未找到该项目 <Link to="/archive" className="text-primary">返回名录</Link></div>;
@@ -104,7 +137,7 @@ const Detail = () => {
           <div className="detail-section">
             <h3 className="font-bold text-stone-800 mb-4">相关推荐</h3>
             <ul className="rec-list">
-              {HERITAGE_ITEMS.filter(i => i.id !== item.id).slice(0, 3).map(rec => (
+              {relatedItems.map(rec => (
                 <li key={rec.id}>
                   <Link to={`/detail/${rec.id}`} className="rec-link">
                     <img src={rec.image} className="rec-thumb" />

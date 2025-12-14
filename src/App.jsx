@@ -6,7 +6,12 @@ import Home from './pages/Home';
 import Archive from './pages/Archive';
 import Detail from './pages/Detail';
 import Techniques from './pages/Techniques';
-import { Stories, MapPage, Interactive, Protection, About, NotFound } from './pages/MiscPages';
+import Stories from './pages/Stories';
+import MapPage from './pages/MapPage';
+import Interactive from './pages/Interactive';
+import Protection from './pages/Protection';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
 import { InheritorList, InheritorDetail } from './pages/Inheritors';
 import './assets/css/App.css';
 
