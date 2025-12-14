@@ -10,7 +10,9 @@ import {
   TECHNIQUES,
   TECHNIQUE_COMPARISON,
   CRAFTSMAN_QUOTES,
-  MAP_DATA
+  MAP_DATA,
+  QUIZ_DATA,
+  DIY_DATA
 } from '../constants';
 
 // 模拟网络延迟
@@ -188,6 +190,26 @@ export const apiService = {
     await delay(400);
     return {
       data: MAP_DATA,
+      status: 200,
+      message: 'success'
+    };
+  },
+
+  // 获取题目数据
+  getQuizData: async () => {
+    await delay(300);
+    return {
+      data: QUIZ_DATA,
+      status: 200,
+      message: 'success'
+    };
+  },
+
+  // 获取DIY教程数据
+  getDiyData: async () => {
+    await delay(300);
+    return {
+      data: DIY_DATA,
       status: 200,
       message: 'success'
     };

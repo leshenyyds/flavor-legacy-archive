@@ -5,32 +5,97 @@
   padding: 2rem 1rem;
 }
 
+/* DIY Section */
+.diy-section {
+  margin-bottom: 3rem;
+}
+
+.diy-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #292524;
+}
+
 .diy-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .diy-card {
   background-color: white;
-  padding: 1rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-top: 4px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.diy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transition: height 0.3s ease;
+}
+
+.diy-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.15), 0 4px 6px -2px rgba(0,0,0,0.1);
 }
 
 .diy-card-green { 
-  border-bottom: 4px solid #16a34a; 
+  border-top-color: #16a34a;
+}
+
+.diy-card-green:hover {
+  background-color: #f0fdf4;
 }
 
 .diy-card-yellow { 
-  border-bottom: 4px solid #ca8a04; 
+  border-top-color: #ca8a04;
 }
 
+.diy-card-yellow:hover {
+  background-color: #fefce8;
+}
+
+.diy-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #292524;
+}
+
+.diy-card-difficulty {
+  font-size: 0.75rem;
+  color: #78716c;
+  margin-bottom: 0.75rem;
+}
+
+.diy-card-desc {
+  font-size: 0.875rem;
+  color: #57534e;
+  line-height: 1.5;
+}
+
+/* Vote Section */
 .vote-section {
   background-color: white;
   padding: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.vote-section:hover {
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -2px rgba(0,0,0,0.05);
 }
 
 .vote-bar-bg {
@@ -38,40 +103,19 @@
   background-color: #f5f5f4;
   border-radius: 9999px;
   height: 0.625rem;
+  overflow: hidden;
 }
 
 .vote-bar-fill {
-  background-color: var(--primary-color);
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   height: 0.625rem;
   border-radius: 9999px;
-}
-
-.quiz-section {
-  background-color: #292524;
-  color: #f5f5f4;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  text-align: center;
-}
-
-.quiz-btn {
-  padding: 0.5rem 1.5rem;
-  border: 1px solid #78716c;
-  color: inherit;
-  border-radius: 0.25rem;
-  margin: 0 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  background: transparent;
-}
-
-.quiz-btn:hover {
-  background-color: #44403c;
+  transition: width 0.5s ease;
 }
 
 @media (min-width: 768px) {
   .diy-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
