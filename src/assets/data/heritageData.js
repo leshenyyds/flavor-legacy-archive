@@ -6,7 +6,7 @@ import pixiandoubanImg from '../image/郫县豆瓣.jpg';
 export const HERITAGE_ITEMS = [
   {
     id: 'luosifen',
-    name: '柳州螺蛳粉制作技艺',
+    name: '柳州螺蛳粉',
     level: '国家级',
     region: '华南',
     year: '2021',
@@ -26,7 +26,7 @@ export const HERITAGE_ITEMS = [
   },
   {
     id: 'kaoya',
-    name: '北京烤鸭（挂炉技艺）',
+    name: '北京烤鸭',
     level: '国家级',
     region: '华北',
     year: '2008',
@@ -47,7 +47,7 @@ export const HERITAGE_ITEMS = [
   },
   {
     id: 'chaofan',
-    name: '扬州炒饭制作技艺',
+    name: '扬州炒饭',
     level: '省级',
     region: '华东',
     year: '2015',
@@ -63,7 +63,7 @@ export const HERITAGE_ITEMS = [
   },
   {
     id: 'douban',
-    name: '郫县豆瓣酿制技艺',
+    name: '郫县豆瓣',
     level: '国家级',
     region: '西南',
     year: '2008',
