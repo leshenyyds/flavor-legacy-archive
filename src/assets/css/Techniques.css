@@ -18,11 +18,33 @@
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
   border-top: 4px solid var(--secondary-color);
-  transition: transform 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
 .tech-card:hover {
   transform: translateY(-0.25rem);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.15);
+}
+
+.tech-card-active {
+  border-top-color: var(--primary-color);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.15);
+  background-color: #fff7ed;
+}
+
+.tech-card-image {
+  width: 100%;
+  height: 10rem;
+  margin-bottom: 1rem;
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+.tech-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .tech-title {
@@ -46,53 +68,175 @@
   border-radius: 0.25rem;
 }
 
-/* Comparison Table */
-.comparison-box {
+/* Technique Detail */
+.tech-detail-box {
   background-color: white;
   padding: 2rem;
   border-radius: 0.5rem;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
   margin-bottom: 3rem;
+  border-top: 4px solid var(--primary-color);
 }
 
-.comp-title {
+.tech-detail-title {
   font-size: 1.5rem;
   font-family: "Noto Serif SC", serif;
   font-weight: bold;
-  color: #292524;
+  color: var(--primary-color);
   margin-bottom: 1.5rem;
-  border-left: 4px solid var(--primary-color);
-  padding-left: 1rem;
 }
 
-.table-responsive {
-  overflow-x: auto;
+.tech-detail-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
-.tech-table {
-  min-width: 100%;
-  border-collapse: collapse;
+.tech-detail-image {
+  width: 100%;
+  height: 20rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.1);
 }
 
-.tech-table th {
+.tech-detail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tech-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tech-detail-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #292524;
+  margin: 0;
+}
+
+.tech-detail-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tech-detail-level,
+.tech-detail-region,
+.tech-detail-year {
+  padding: 0.25rem 0.75rem;
   background-color: #fafaf9;
-  padding: 0.75rem 1.5rem;
-  text-align: left;
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: #78716c;
-  letter-spacing: 0.05em;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  color: #57534e;
 }
 
-.tech-table td {
-  padding: 1rem 1.5rem;
+.tech-detail-level {
+  background-color: #fef3c7;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.tech-detail-desc {
+  color: #57534e;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.tech-detail-techniques {
+  margin-top: 0.5rem;
+}
+
+.tech-detail-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #292524;
+  margin-bottom: 0.75rem;
+}
+
+.tech-detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tech-detail-list li {
+  padding: 0.5rem 0.75rem;
+  background-color: #fafaf9;
+  border-radius: 0.25rem;
+  color: #57534e;
+  border-left: 3px solid var(--secondary-color);
+}
+
+.tech-detail-history {
+  margin-top: 1rem;
+}
+
+.tech-detail-history-text {
+  color: #57534e;
+  line-height: 1.8;
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.tech-detail-heritages {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
   border-top: 1px solid #e7e5e4;
-  color: #44403c;
 }
 
-.tech-table tr:hover {
+.heritage-icons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.heritage-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: #fafaf9;
+}
+
+.heritage-icon-item:hover {
+  transform: translateY(-4px);
   background-color: #fff7ed;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.heritage-icon-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.1);
+}
+
+.heritage-icon-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heritage-icon-name {
+  font-size: 0.75rem;
+  color: #57534e;
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 /* Quotes */
@@ -141,6 +285,13 @@
   }
   .quotes-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .tech-detail-content {
+    grid-template-columns: 1fr 2fr;
+  }
+  .tech-detail-image {
+    height: 100%;
+    min-height: 20rem;
   }
 }
 

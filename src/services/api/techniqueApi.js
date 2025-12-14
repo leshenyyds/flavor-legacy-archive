@@ -1,4 +1,4 @@
-import { TECHNIQUES, TECHNIQUE_COMPARISON, CRAFTSMAN_QUOTES } from '../../assets/data/techniqueData';
+import { TECHNIQUES } from '../../assets/data/techniqueData';
 
 // 模拟网络延迟
 const delay = (ms = 500) => new Promise(resolve => setTimeout(resolve, ms));
@@ -13,21 +13,19 @@ export const getTechniques = async () => {
   };
 };
 
-// 获取技艺对比数据
-export const getTechniqueComparison = async () => {
-  await delay(400);
+// 根据标题获取单个技艺详情
+export const getTechniqueByTitle = async (title) => {
+  await delay(500);
+  const technique = TECHNIQUES.find(t => t.title === title);
+  if (!technique) {
+    return {
+      data: null,
+      status: 404,
+      message: 'Technique not found'
+    };
+  }
   return {
-    data: TECHNIQUE_COMPARISON,
-    status: 200,
-    message: 'success'
-  };
-};
-
-// 获取匠人语录
-export const getCraftsmanQuotes = async () => {
-  await delay(300);
-  return {
-    data: CRAFTSMAN_QUOTES,
+    data: technique,
     status: 200,
     message: 'success'
   };

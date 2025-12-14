@@ -67,8 +67,7 @@ export const apiService = {
   
   // Technique
   getTechniques: techniqueApi.getTechniques,
-  getTechniqueComparison: techniqueApi.getTechniqueComparison,
-  getCraftsmanQuotes: techniqueApi.getCraftsmanQuotes,
+  getTechniqueByTitle: techniqueApi.getTechniqueByTitle,
   
   // Map
   getMapData: mapApi.getMapData,
