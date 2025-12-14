@@ -7,6 +7,8 @@ import chaofanImg from './assets/image/扬州炒饭.jpg';
 import zongziImg from './assets/image/粽子.jpg';
 import guangdongzaochaImg from './assets/image/广东早茶.jpg';
 import pixiandoubanImg from './assets/image/郫县豆瓣.jpg';
+import goushifuImg from './assets/image/狗师傅.jpg';
+import shushifuImg from './assets/image/鼠师傅.jpg';
 export const NAV_LINKS = [
   { name: '首页', path: '/', icon: 'Home' },
   { name: '非遗名录', path: '/archive', icon: 'Book' },
@@ -125,12 +127,12 @@ export const HERITAGE_ITEMS = [
 export const INHERITORS = [
   {
     id: '1',
-    name: '李师傅',
+    name: '狗师傅',
     age: 58,
     project: '山西刀削面制作技艺',
     region: '华北',
     tag: '刀削面非遗大师',
-    image: 'https://picsum.photos/200/200?random=10',
+    image: goushifuImg,
     description: '40年一刀一面，守护山西面食灵魂。',
     story: '15岁学削面，练到手腕肿，3年才出师。',
     skills: '蒙眼削面，根根粗细均匀，薄如柳叶。',
@@ -139,12 +141,12 @@ export const INHERITORS = [
   },
   {
     id: '2',
-    name: '张阿姨',
+    name: '鼠师傅',
     age: 65,
     project: '柳州螺蛳粉制作技艺',
     region: '华南',
     tag: '螺蛳粉第三代传承人',
-    image: 'https://picsum.photos/200/200?random=11',
+    image: shushifuImg,
     description: '坚守传统工艺，拒绝工业化速成汤底。',
     story: '为了寻找最适合的酸笋，走遍了柳州周边的山村。',
     skills: '闻香识料，一口汤能尝出30种香料的配比。',
