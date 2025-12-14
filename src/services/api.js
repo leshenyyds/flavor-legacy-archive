@@ -9,7 +9,8 @@ import {
   TRIVIAS,
   TECHNIQUES,
   TECHNIQUE_COMPARISON,
-  CRAFTSMAN_QUOTES
+  CRAFTSMAN_QUOTES,
+  MAP_DATA
 } from '../constants';
 
 // 模拟网络延迟
@@ -177,6 +178,16 @@ export const apiService = {
     await delay(300);
     return {
       data: CRAFTSMAN_QUOTES,
+      status: 200,
+      message: 'success'
+    };
+  },
+
+  // 获取地图数据
+  getMapData: async () => {
+    await delay(400);
+    return {
+      data: MAP_DATA,
       status: 200,
       message: 'success'
     };

@@ -239,3 +239,38 @@ export const CRAFTSMAN_QUOTES = [
   '心静，手才稳，味才正'
 ];
 
+export const MAP_DATA = {
+  labels: [
+    {
+      id: 'northwest',
+      title: '西北面食带',
+      content: '兰州牛肉面, 泡馍',
+      position: { top: '20%', left: '25%' }
+    },
+    {
+      id: 'southwest',
+      title: '西南调味带',
+      content: '郫县豆瓣, 火锅',
+      position: { top: '50%', left: '50%' }
+    },
+    {
+      id: 'yangtze',
+      title: '长江米面带',
+      content: '扬州炒饭, 汤包',
+      position: { bottom: '25%', right: '25%' }
+    }
+  ],
+  analysis: {
+    title: '美食带解析',
+    content: '长江中下游米面非遗带：稻作文化的极致体现，讲究精细、鲜美。'
+  },
+  route: {
+    title: '打卡路线推荐',
+    days: [
+      { day: 'Day 1', place: '南京鸭血粉丝' },
+      { day: 'Day 2', place: '苏州汤包' },
+      { day: 'Day 3', place: '杭州片儿川' }
+    ]
+  }
+};
+
