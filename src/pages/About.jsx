@@ -26,15 +26,19 @@ const About = () => (
       </div>
       <div className="team-box">
         <p className="team-intro">
-          我们是"非遗美食文化传播小组"，一群热爱传统文化的高校学生。希望通过这个项目，
-          让更多人感受到非遗美食的魅力，传承这份珍贵的文化遗产。
+          <span className="intro-highlight">React 课程大作业项目·非遗美食文化传播平台</span> 
+          <br />
+          <span className="intro-text">
+            我们希望通过这个项目，让更多人感受到非遗美食的独特魅力，
+            了解每一道传统美食背后的历史故事与匠人精神，共同守护这份珍贵的文化遗产。
+          </span>
         </p>
         <div className="team-grid">
           <div className="team-member">
             <div className="member-icon">
               <FileText size={24} />
             </div>
-            <h3 className="member-name">王同学</h3>
+            <h3 className="member-name">徐诗祯</h3>
             <p className="member-role">内容策划</p>
             <p className="member-desc">负责非遗文化内容的研究与整理</p>
           </div>
@@ -42,7 +46,7 @@ const About = () => (
             <div className="member-icon">
               <Code size={24} />
             </div>
-            <h3 className="member-name">张同学</h3>
+            <h3 className="member-name">章康乐</h3>
             <p className="member-role">前端开发</p>
             <p className="member-desc">负责网站开发与技术实现</p>
           </div>

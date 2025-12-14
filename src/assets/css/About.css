@@ -71,10 +71,27 @@
 .team-intro {
   text-align: center;
   color: #57534e;
-  line-height: 1.8;
+  line-height: 2;
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #e7e5e4;
+  font-size: 1rem;
+}
+
+.intro-highlight {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: 0.5px;
+}
+
+.intro-text {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: #57534e;
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  max-width: 42rem;
 }
 
 .team-grid {
