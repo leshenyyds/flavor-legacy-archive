@@ -1,0 +1,26 @@
+/* Breadcrumb Styles */
+.breadcrumb {
+  color: #78716c;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #a8a29e;
+}
+
+.breadcrumb-current {
+  color: #292524;
+  font-weight: 500;
+}
+
