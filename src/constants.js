@@ -4,6 +4,7 @@ import banner3 from './assets/image/Banner3.jpg';
 import luosifenImg from './assets/image/螺蛳粉.jpg';
 import kaoyaImg from './assets/image/北京烤鸭.jpg';
 import chaofanImg from './assets/image/扬州炒饭.jpg';
+import zongziImg from './assets/image/粽子.jpg';
 
 export const NAV_LINKS = [
   { name: '首页', path: '/', icon: 'Home' },
@@ -172,5 +173,15 @@ export const NEWS = [
   { id: 1, title: '柳州螺蛳粉技艺走进北京高校', date: '2023-10-15' },
   { id: 2, title: '张师傅荣获"大国工匠"年度人物提名', date: '2023-10-12' },
   { id: 3, title: '非遗美食数字博物馆正式上线', date: '2023-10-01' },
+];
+
+export const TRIVIAS = [
+  {
+    title: '为何端午要吃粽子？',
+    image: zongziImg,
+    description: '除了纪念屈原，在非遗食俗中，粽叶的清香象征驱邪，糯米象征丰收。',
+    linkTo: '/stories',
+    linkText: '阅读更多'
+  }
 ];
 

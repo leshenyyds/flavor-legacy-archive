@@ -4,12 +4,12 @@ import { ArrowRight } from 'lucide-react';
 import { SectionTitle } from '../components/Layout';
 import { Banner } from '../components/Banner';
 import { HeritageCard } from '../components/HeritageCard';
-import { HERITAGE_ITEMS, NEWS, BANNERS } from '../constants';
+import { HERITAGE_ITEMS, NEWS, BANNERS, TRIVIAS } from '../constants';
 import '../assets/css/Home.css';
 
 const Home = () => {
   const featuredItems = HERITAGE_ITEMS.slice(0, 3);
-
+  const TRIVIA = TRIVIAS.length > 0 ? TRIVIAS[0] : null;
 
   // 确保数据存在
   if (!featuredItems || featuredItems.length === 0) {
@@ -56,19 +56,21 @@ const Home = () => {
           </div>
 
           {/* Trivia */}
-          <div className="trivia-box">
-             <h3 className="news-header">民俗小知识</h3>
-             <div className="flex flex-col gap-4">
-               <img src="https://picsum.photos/300/150?random=9" alt="Zongzi" className="rounded-md object-cover h-32 w-full" />
-               <h4 className="font-bold text-stone-800">为何端午要吃粽子？</h4>
-               <p className="text-sm text-stone-600">
-                 除了纪念屈原，在非遗食俗中，粽叶的清香象征驱邪，糯米象征丰收。
-               </p>
-               <Link to="/stories" className="text-sm text-accent font-medium flex items-center mt-2" style={{color: 'var(--accent-color)'}}>
-                 阅读更多 <ArrowRight size={14} />
-               </Link>
-             </div>
-          </div>
+          {TRIVIA && (
+            <div className="trivia-box">
+               <h3 className="news-header">民俗小知识</h3>
+               <div className="flex flex-col gap-4">
+                 <img src={TRIVIA.image} alt={TRIVIA.title} className="rounded-md object-cover h-32 w-full" />
+                 <h4 className="font-bold text-stone-800">{TRIVIA.title}</h4>
+                 <p className="text-sm text-stone-600">
+                   {TRIVIA.description}
+                 </p>
+                 <Link to={TRIVIA.linkTo} className="text-sm text-accent font-medium flex items-center mt-2" style={{color: 'var(--accent-color)'}}>
+                   {TRIVIA.linkText} <ArrowRight size={14} />
+                 </Link>
+               </div>
+            </div>
+          )}
         </div>
 
       </div>
