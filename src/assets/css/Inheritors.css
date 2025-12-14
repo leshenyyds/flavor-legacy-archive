@@ -19,6 +19,7 @@
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
+  height: 450px;
 }
 
 .inheritor-card:hover {
@@ -46,6 +47,10 @@
 .inheritor-body {
   padding: 1.25rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
 }
 
 .inheritor-name {
@@ -98,7 +103,7 @@
   background-color: #fafaf9;
   border-radius: 0.5rem;
   border: 2px dashed #e7e5e4;
-  height: 380px;
+  height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,21 +215,53 @@
 }
 
 .skill-box {
-  background-color: #292524;
-  color: white;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
+  padding: 1.5rem 0;
 }
 
-.skill-gif-placeholder {
-  height: 10rem;
-  background-color: #44403c;
-  border-radius: 0.25rem;
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
+  max-width: 250px;
+}
+
+.skill-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border: 1px solid #57534e;
-  margin-top: 1rem;
+  text-align: center;
+  padding: 0.75rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.skill-item:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.skill-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #fafaf9;
+  margin-bottom: 0.5rem;
+}
+
+.skill-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.skill-name {
+  font-size: 0.75rem;
+  color: #57534e;
+  font-weight: 500;
+  margin: 0;
 }
 
 @media (min-width: 768px) {

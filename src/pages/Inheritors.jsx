@@ -35,31 +35,32 @@ const InheritorList = () => {
       <SectionTitle title="传承人风采" />
       
       <div className="inheritor-grid">
-        {inheritors.map(person => (
-        <div key={person.id} className="inheritor-card group">
-          <div className="inheritor-img-wrap">
-             <img src={person.image} alt={person.name} className="inheritor-img" />
-          </div>
-          <div className="inheritor-body">
-            <h3 className="inheritor-name">{person.name} <span className="inheritor-age">({person.age}岁)</span></h3>
-            <p className="inheritor-project">{person.project}</p>
-            <span className="inheritor-tag">{person.tag}</span>
-            <Link to={`/inheritors/${person.id}`} className="story-btn">
-              查看故事
-            </Link>
-          </div>
-        </div>
-        ))}
-        {/* Mocking more items to fill grid */}
-        {[3,4,5,6].map(i => (
-           <div key={i} className="placeholder-card">
-             <div className="text-center">
-               <User size={48} className="mx-auto mb-2 opacity-50"/>
-               <p>虚位以待</p>
-             </div>
-           </div>
-          ))}
-        </div>
+        {[1, 2, 3, 4, 5, 6].map(id => {
+          const person = inheritors.find(p => p.id === String(id));
+          return person ? (
+            <div key={person.id} className="inheritor-card group">
+              <div className="inheritor-img-wrap">
+                 <img src={person.image} alt={person.name} className="inheritor-img" />
+              </div>
+              <div className="inheritor-body">
+                <h3 className="inheritor-name">{person.name} <span className="inheritor-age">({person.age}岁)</span></h3>
+                <p className="inheritor-project">{person.project}</p>
+                <span className="inheritor-tag">{person.tag}</span>
+                <Link to={`/inheritors/${person.id}`} className="story-btn">
+                  查看故事
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div key={id} className="placeholder-card">
+              <div className="text-center">
+                <User size={48} className="mx-auto mb-2 opacity-50"/>
+                <p>虚位以待</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
 
       <div className="challenges-section">
         <div className="info-box">
@@ -170,30 +171,22 @@ const InheritorDetail = () => {
           </h2>
           <div className="skill-box">
              {person.skills && Array.isArray(person.skills) ? (
-               person.skills.map(skillId => {
-                 const technique = techniques.find(t => t.id === skillId);
-                 return technique ? (
-                   <div key={technique.id} className="mb-4">
-                     <h3 className="text-xl font-bold mb-2" style={{color: 'var(--primary-color)'}}>
-                       {technique.title}
-                     </h3>
-                     <p className="text-lg text-stone-700 mb-2">{technique.description}</p>
-                     {technique.characteristics && technique.characteristics.length > 0 && (
-                       <ul className="list-disc list-inside text-stone-600 space-y-1">
-                         {technique.characteristics.map((char, idx) => (
-                           <li key={idx}>{char}</li>
-                         ))}
-                       </ul>
-                     )}
-                   </div>
-                 ) : null;
-               })
+               <div className="skill-grid">
+                 {person.skills.map(skillId => {
+                   const technique = techniques.find(t => t.id === skillId);
+                   return technique ? (
+                     <div key={technique.id} className="skill-item">
+                       <div className="skill-image">
+                         <img src={technique.image} alt={technique.title} />
+                       </div>
+                       <p className="skill-name">{technique.title}</p>
+                     </div>
+                   ) : null;
+                 })}
+               </div>
              ) : (
                <p className="text-lg mb-4">{person.skills}</p>
              )}
-             <div className="skill-gif-placeholder">
-               [动态示意图模拟：蒙眼削面GIF]
-             </div>
           </div>
         </section>
 
