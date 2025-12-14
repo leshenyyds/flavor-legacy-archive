@@ -1,0 +1,151 @@
+/* Techniques Page */
+.tech-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.tech-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+  border-top: 4px solid var(--secondary-color);
+  transition: transform 0.3s;
+}
+
+.tech-card:hover {
+  transform: translateY(-0.25rem);
+}
+
+.tech-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.tech-desc {
+  color: #57534e;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.tech-example {
+  font-size: 0.875rem;
+  color: #78716c;
+  background-color: #fafaf9;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Comparison Table */
+.comparison-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+  margin-bottom: 3rem;
+}
+
+.comp-title {
+  font-size: 1.5rem;
+  font-family: "Noto Serif SC", serif;
+  font-weight: bold;
+  color: #292524;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.tech-table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+.tech-table th {
+  background-color: #fafaf9;
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #78716c;
+  letter-spacing: 0.05em;
+}
+
+.tech-table td {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e7e5e4;
+  color: #44403c;
+}
+
+.tech-table tr:hover {
+  background-color: #fff7ed;
+}
+
+/* Quotes */
+.quotes-section {
+  background-color: rgba(139, 69, 19, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.quotes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.quote-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.quote-mark {
+  font-size: 2.25rem;
+  color: #e7e5e4;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-family: "Noto Serif SC", serif;
+  line-height: 1;
+}
+
+.quote-text {
+  position: relative;
+  z-index: 10;
+  color: #44403c;
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .quotes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .tech-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
