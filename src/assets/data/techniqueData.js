@@ -5,6 +5,7 @@ import fajiaoImg from '../image/发酵技艺.png';
 
 export const TECHNIQUES = [
   { 
+    id: 'huogong',
     title: '火工技艺', 
     desc: '烤、炖、蒸、炸', 
     examples: '烤鸭挂炉火控、佛跳墙慢炖',
@@ -25,6 +26,7 @@ export const TECHNIQUES = [
     ]
   },
   { 
+    id: 'tiaowei',
     title: '调味技艺', 
     desc: '酱料、汤料、腌制', 
     examples: '郫县豆瓣酿制、潮汕牛肉火锅汤底',
@@ -44,6 +46,7 @@ export const TECHNIQUES = [
     ]
   },
   { 
+    id: 'suxing',
     title: '塑形技艺', 
     desc: '面点捏塑、米粉压制', 
     examples: '山西刀削面、广东虾饺捏制',
@@ -63,6 +66,7 @@ export const TECHNIQUES = [
     ]
   },
   {  
+    id: 'fajiao',
     title: '发酵技艺', 
     desc: '酒、醋、酱、泡菜', 
     examples: '绍兴黄酒酿造、四川泡菜发酵',

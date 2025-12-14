@@ -85,14 +85,20 @@ const InheritorDetail = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [person, setPerson] = useState(null);
+  const [techniques, setTechniques] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await apiService.getInheritorById(id);
-        if (response.data) {
-          setPerson(response.data);
+        const [inheritorRes, techniquesRes] = await Promise.all([
+          apiService.getInheritorById(id),
+          apiService.getTechniques()
+        ]);
+        
+        if (inheritorRes.data) {
+          setPerson(inheritorRes.data);
+          setTechniques(techniquesRes.data || []);
         } else {
           // 如果找不到传承人，重定向到 404 页面
           navigate('/404', { replace: true });
@@ -163,7 +169,28 @@ const InheritorDetail = () => {
              技艺绝活
           </h2>
           <div className="skill-box">
-             <p className="text-lg mb-4">{person.skills}</p>
+             {person.skills && Array.isArray(person.skills) ? (
+               person.skills.map(skillId => {
+                 const technique = techniques.find(t => t.id === skillId);
+                 return technique ? (
+                   <div key={technique.id} className="mb-4">
+                     <h3 className="text-xl font-bold mb-2" style={{color: 'var(--primary-color)'}}>
+                       {technique.title}
+                     </h3>
+                     <p className="text-lg text-stone-700 mb-2">{technique.description}</p>
+                     {technique.characteristics && technique.characteristics.length > 0 && (
+                       <ul className="list-disc list-inside text-stone-600 space-y-1">
+                         {technique.characteristics.map((char, idx) => (
+                           <li key={idx}>{char}</li>
+                         ))}
+                       </ul>
+                     )}
+                   </div>
+                 ) : null;
+               })
+             ) : (
+               <p className="text-lg mb-4">{person.skills}</p>
+             )}
              <div className="skill-gif-placeholder">
                [动态示意图模拟：蒙眼削面GIF]
              </div>

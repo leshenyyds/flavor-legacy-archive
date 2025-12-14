@@ -12,7 +12,7 @@ export const INHERITORS = [
     image: goushifuImg,
     description: '40年一刀一面，守护山西面食灵魂。',
     story: '15岁学削面，练到手腕肿，3年才出师。',
-    skills: '蒙眼削面，根根粗细均匀，薄如柳叶。',
+    skills: ['suxing'], // 塑形技艺
     plans: '已收12名徒弟，每周去小学教孩子削面基础。',
     quote: '非遗不是老古董，是要有人做，有人吃，才能活。'
   },
@@ -26,7 +26,7 @@ export const INHERITORS = [
     image: shushifuImg,
     description: '坚守传统工艺，拒绝工业化速成汤底。',
     story: '为了寻找最适合的酸笋，走遍了柳州周边的山村。',
-    skills: '闻香识料，一口汤能尝出30种香料的配比。',
+    skills: ['suxing'], // 塑形技艺
     plans: '正在整理螺蛳粉制作口诀，准备出版书籍。',
     quote: '这一碗粉，不仅是味道，更是乡愁。'
   }
