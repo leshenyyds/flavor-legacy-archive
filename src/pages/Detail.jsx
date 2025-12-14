@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { apiService } from '../services/api';
 import { PlayCircle, Clock, MapPin, Award } from 'lucide-react';
 import { Breadcrumb } from '../components/Breadcrumb';
@@ -9,6 +9,7 @@ import '../assets/css/Detail.css';
 
 const Detail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [item, setItem] = useState(null);
   const [relatedItems, setRelatedItems] = useState([]);
@@ -35,9 +36,13 @@ const Detail = () => {
               setInheritor(inheritorRes.data);
             }
           }
+        } else {
+          // 如果找不到项目，重定向到 404 页面
+          navigate('/404', { replace: true });
         }
       } catch (error) {
         console.error('Failed to fetch item:', error);
+        navigate('/404', { replace: true });
       } finally {
         setLoading(false);
       }
@@ -46,14 +51,14 @@ const Detail = () => {
     if (id) {
       fetchData();
     }
-  }, [id]);
+  }, [id, navigate]);
 
   if (loading) {
     return <Loading />;
   }
 
   if (!item) {
-    return <div className="text-center py-20">未找到该项目 <Link to="/archive" className="text-primary">返回名录</Link></div>;
+    return null; // 重定向中，不显示任何内容
   }
 
   const breadcrumbItems = [

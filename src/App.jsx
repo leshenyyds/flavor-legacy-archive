@@ -48,6 +48,7 @@ const App = () => {
                 <Route path="/interactive" element={<Interactive />} />
                 <Route path="/protection" element={<Protection />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/404" element={<NotFound />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>

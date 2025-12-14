@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { SectionTitle } from '../components/Layout';
 import Loading from '../components/Loading';
 import { apiService } from '../services/api';
@@ -82,6 +82,7 @@ const InheritorList = () => {
 
 const InheritorDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [person, setPerson] = useState(null);
 
@@ -92,9 +93,13 @@ const InheritorDetail = () => {
         const response = await apiService.getInheritorById(id);
         if (response.data) {
           setPerson(response.data);
+        } else {
+          // 如果找不到传承人，重定向到 404 页面
+          navigate('/404', { replace: true });
         }
       } catch (error) {
         console.error('Failed to fetch inheritor:', error);
+        navigate('/404', { replace: true });
       } finally {
         setLoading(false);
       }
@@ -103,14 +108,14 @@ const InheritorDetail = () => {
     if (id) {
       fetchData();
     }
-  }, [id]);
+  }, [id, navigate]);
 
   if (loading) {
     return <Loading />;
   }
 
   if (!person) {
-    return <div>Person not found</div>;
+    return null; // 重定向中，不显示任何内容
   }
 
   return (
@@ -179,4 +184,3 @@ const InheritorDetail = () => {
 };
 
 export { InheritorList, InheritorDetail };
-
