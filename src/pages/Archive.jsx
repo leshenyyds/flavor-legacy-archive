@@ -67,11 +67,7 @@ const Archive = () => {
           <HeritageCard key={item.id} item={item} variant="archive" />
         ))}
       </div>
-      
-      {/* Policy Link */}
-      <div className="policy-link">
-        <p>了解更多申报标准，请访问 <a href="#" className="text-blue-600 hover:underline">文化和旅游部非遗司官网</a> (模拟链接)</p>
-      </div>
+
     </div>
   );
 };
