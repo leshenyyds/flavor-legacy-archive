@@ -4,7 +4,10 @@ import '../assets/css/Interactive.css';
 
 const Interactive = () => (
   <div className="interactive-container">
-    <SectionTitle title="互动专区" />
+    <SectionTitle 
+      title="互动专区" 
+      subtitle="体验非遗，参与互动，感受传统文化的魅力"
+    />
     
     <div className="space-y-12">
       {/* DIY */}

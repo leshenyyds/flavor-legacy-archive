@@ -39,7 +39,10 @@ const Techniques = () => {
 
   return (
     <div className="tech-container">
-      <SectionTitle title="千锤百炼：非遗美食的核心制作技艺" />
+      <SectionTitle 
+        title="千锤百炼：非遗美食的核心制作技艺" 
+        subtitle="传承千年的精湛工艺，每一道工序都凝聚着匠人的智慧"
+      />
       
       {/* 4 Main Categories */}
       <div className="tech-grid">
