@@ -113,6 +113,22 @@
   transition: width 0.5s ease;
 }
 
+.vote-option {
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.vote-option:hover {
+  background-color: #fafaf9;
+  transform: translateX(4px);
+}
+
+.vote-option:active {
+  transform: translateX(2px);
+}
+
 @media (min-width: 768px) {
   .diy-grid {
     grid-template-columns: repeat(2, 1fr);

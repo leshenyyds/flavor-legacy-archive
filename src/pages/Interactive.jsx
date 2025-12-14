@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { vote } from '../store/slices/voteSlice';
 import { SectionTitle } from '../components/Layout';
 import Quiz from '../components/Quiz';
 import Loading from '../components/Loading';
@@ -11,6 +13,8 @@ const Interactive = () => {
   const [quizData, setQuizData] = useState([]);
   const [diyData, setDiyData] = useState([]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const voteOptions = useSelector((state) => state.vote.options);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,21 +66,27 @@ const Interactive = () => {
         <section className="vote-section">
           <h3 className="text-xl font-bold mb-6 text-center">你最想体验哪项技艺？</h3>
           <div className="space-y-4">
-            {[
-              { name: '螺蛳粉制作', votes: 328, percent: '60%' },
-              { name: '烤鸭片制', votes: 256, percent: '45%' },
-              { name: '糖画绘制', votes: 150, percent: '30%' }
-            ].map(opt => (
-              <div key={opt.name}>
-                <div className="flex justify-between text-sm mb-1">
-                  <span>{opt.name}</span>
-                  <span>{opt.votes} 票</span>
-                </div>
-                <div className="vote-bar-bg">
-                  <div className="vote-bar-fill" style={{ width: opt.percent }}></div>
-                </div>
-              </div>
-            ))}
+            {(() => {
+              const totalVotes = voteOptions.reduce((sum, opt) => sum + opt.votes, 0);
+              return voteOptions.map(opt => {
+                const percent = totalVotes > 0 ? `${Math.round((opt.votes / totalVotes) * 100)}%` : '0%';
+                return (
+                  <div 
+                    key={opt.id} 
+                    className="vote-option"
+                    onClick={() => dispatch(vote(opt.id))}
+                  >
+                    <div className="flex justify-between text-sm mb-1">
+                      <span>{opt.name}</span>
+                      <span>{opt.votes} 票</span>
+                    </div>
+                    <div className="vote-bar-bg">
+                      <div className="vote-bar-fill" style={{ width: percent }}></div>
+                    </div>
+                  </div>
+                );
+              });
+            })()}
           </div>
         </section>
 
