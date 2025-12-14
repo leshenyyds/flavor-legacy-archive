@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
+import { DEFAULT_IMAGE } from '../constants';
 import '../assets/css/HeritageCard.css';
 
 export const HeritageCard = ({ item, variant = 'default' }) => {
@@ -14,7 +15,10 @@ export const HeritageCard = ({ item, variant = 'default' }) => {
             src={item.image} 
             alt={item.name} 
             className="archive-img"
-            onError={() => setImageError(true)}
+            onError={(e) => {
+              setImageError(true);
+              e.target.src = DEFAULT_IMAGE;
+            }}
           />
           {!imageError && (
             <div className="archive-level-badge">
@@ -46,7 +50,7 @@ export const HeritageCard = ({ item, variant = 'default' }) => {
           className="card-img"
           onError={(e) => {
             setImageError(true);
-            e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23ffedd5" width="400" height="300"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%239a3412" font-size="20"%3E图片加载中...%3C/text%3E%3C/svg%3E';
+            e.target.src = DEFAULT_IMAGE;
           }}
         />
       </div>

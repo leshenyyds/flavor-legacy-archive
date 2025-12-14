@@ -1,4 +1,5 @@
 import React from 'react';
+import { DEFAULT_IMAGE } from '../constants';
 import '../assets/css/Footer.css';
 
 export const Footer = () => {
@@ -24,7 +25,7 @@ export const Footer = () => {
         </div>
         <div className="footer-right">
           <div className="qr-code-box">
-             <img src="https://picsum.photos/100/100?grayscale" alt="QR Code" className="w-full h-full object-cover" />
+             <img src={DEFAULT_IMAGE} alt="QR Code" className="w-full h-full object-cover" />
           </div>
           <span className="text-xs">关注公众号，获取更多非遗资讯</span>
         </div>

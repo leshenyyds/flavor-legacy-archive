@@ -9,6 +9,10 @@ import guangdongzaochaImg from './assets/image/广东早茶.jpg';
 import pixiandoubanImg from './assets/image/郫县豆瓣.jpg';
 import goushifuImg from './assets/image/狗师傅.jpg';
 import shushifuImg from './assets/image/鼠师傅.jpg';
+
+// 默认图片路径（全局使用）
+export const DEFAULT_IMAGE = '/logo512.png';
+
 export const NAV_LINKS = [
   { name: '首页', path: '/', icon: 'Home' },
   { name: '非遗名录', path: '/archive', icon: 'Book' },
@@ -58,7 +62,7 @@ export const HERITAGE_ITEMS = [
     category: '特色小吃',
     image: luosifenImg,
     description: '闻着臭，吃着香，酸辣爽口，灵魂在于酸笋。',
-    inheritorName: '张师傅',
+    inheritorId: '2', 
     details: {
       history: '从街头小吃到非遗，螺蛳粉经历了40年的蜕变。它起源于上世纪70-80年代的柳州夜市。',
       technique: [
@@ -78,7 +82,7 @@ export const HERITAGE_ITEMS = [
     category: '烹饪技艺',
     image: kaoyaImg,
     description: '色泽红润，肉质肥而不腻，外脆里嫩。',
-    inheritorName: '刘师傅',
+    inheritorId: '1',
     details: {
       history: '从宫廷菜到民间名吃，全聚德、便宜坊等老字号见证了其百年历史。',
       technique: [
@@ -99,7 +103,7 @@ export const HERITAGE_ITEMS = [
     category: '烹饪技艺',
     image: chaofanImg,
     description: '方寸炒饭，藏淮扬风味，颗粒分明。',
-    inheritorName: '王师傅',
+    inheritorId: '1', 
     details: {
       history: '源于隋朝越国公杨素爱吃的碎金饭。',
       technique: ['选米：籼米', '配料：海参、干贝、虾仁等8种', '火候：武火快炒'],
@@ -115,7 +119,7 @@ export const HERITAGE_ITEMS = [
     category: '酱料制作',
     image: pixiandoubanImg,
     description: '川菜之魂，辣而不燥，醇厚甘甜。',
-    inheritorName: '陈师傅',
+    inheritorId: '1', 
     details: {
       history: '三百余年历史，川菜味型的基石。',
       technique: ['翻、晒、露：日晒夜露', '发酵周期：长达一年以上'],

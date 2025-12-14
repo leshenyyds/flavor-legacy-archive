@@ -4,6 +4,7 @@ import { apiService } from '../services/api';
 import { PlayCircle, Clock, MapPin, Award } from 'lucide-react';
 import { Breadcrumb } from '../components/Breadcrumb';
 import Loading from '../components/Loading';
+import { DEFAULT_IMAGE } from '../constants';
 import '../assets/css/Detail.css';
 
 const Detail = () => {
@@ -11,6 +12,7 @@ const Detail = () => {
   const [loading, setLoading] = useState(true);
   const [item, setItem] = useState(null);
   const [relatedItems, setRelatedItems] = useState([]);
+  const [inheritor, setInheritor] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +27,14 @@ const Detail = () => {
           setItem(itemRes.data);
           // 获取相关推荐（排除当前项）
           setRelatedItems(allItemsRes.data.filter(i => i.id !== id).slice(0, 3));
+          
+          // 根据 inheritorId 获取传承人信息
+          if (itemRes.data.inheritorId) {
+            const inheritorRes = await apiService.getInheritorById(itemRes.data.inheritorId);
+            if (inheritorRes.data) {
+              setInheritor(inheritorRes.data);
+            }
+          }
         }
       } catch (error) {
         console.error('Failed to fetch item:', error);
@@ -74,11 +84,14 @@ const Detail = () => {
           </p>
           <div className="inheritor-mini">
              <div className="inheritor-avatar">
-               <img src={`https://picsum.photos/100/100?random=${id}`} alt="Inheritor" />
+               <img 
+                 src={inheritor?.image || DEFAULT_IMAGE} 
+                 alt={inheritor?.name || '传承人'} 
+               />
              </div>
              <div>
                <p className="text-xs text-stone-500">核心传承人</p>
-               <p className="font-bold text-stone-800">{item.inheritorName}</p>
+               <p className="font-bold text-stone-800">{inheritor?.name || '加载中...'}</p>
              </div>
           </div>
         </div>
