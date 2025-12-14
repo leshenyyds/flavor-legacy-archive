@@ -42,7 +42,7 @@ export const HERITAGE_ITEMS = [
     details: {
       history: '从宫廷菜到民间名吃，全聚德、便宜坊等老字号见证了其百年历史。',
       historyImages: [],
-      videoUrl: '',
+      videoUrl: 'https://www.bilibili.com/video/BV1EY4y1B7Mc/',
       technique: [
         '果木选材：必须使用枣木或梨木',
         '鸭坯处理：打气 - 烫皮 - 挂色 - 晾坯',
@@ -65,7 +65,7 @@ export const HERITAGE_ITEMS = [
     details: {
       history: '源于隋朝越国公杨素爱吃的碎金饭。',
       historyImages: [],
-      videoUrl: '',
+      videoUrl: 'https://www.bilibili.com/video/BV1To4y1u7M2/',
       technique: ['选米：籼米', '配料：海参、干贝、虾仁等8种', '火候：武火快炒'],
       culture: '淮扬菜精细做工的代表。'
     }
@@ -83,7 +83,7 @@ export const HERITAGE_ITEMS = [
     details: {
       history: '三百余年历史，川菜味型的基石。',
       historyImages: [],
-      videoUrl: '',
+      videoUrl: 'https://www.bilibili.com/video/BV1VtnRzLEAc/',
       technique: ['翻、晒、露：日晒夜露', '发酵周期：长达一年以上'],
       culture: '体现了四川人对滋味的极致追求。'
     }
