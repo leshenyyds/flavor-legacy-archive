@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SectionTitle } from '../components/Layout';
+import { SectionTitle } from '../components/SectionTitle';
 import { FilterSection } from '../components/FilterSection';
 import { HeritageCard } from '../components/HeritageCard';
 import Loading from '../components/Loading';

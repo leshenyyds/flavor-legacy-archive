@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SectionTitle } from '../components/Layout';
+import { SectionTitle } from '../components/SectionTitle';
 import Loading from '../components/Loading';
 import { apiService } from '../services/api';
 import mapImage from '../assets/image/大地图.png';

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { vote } from '../store/slices/voteSlice';
-import { SectionTitle } from '../components/Layout';
+import { SectionTitle } from '../components/SectionTitle';
 import Quiz from '../components/Quiz';
 import Loading from '../components/Loading';
 import { apiService } from '../services/api';

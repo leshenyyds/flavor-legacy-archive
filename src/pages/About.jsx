@@ -1,6 +1,6 @@
 import React from 'react';
 import { Users, Heart, BookOpen, Code, Palette, FileText, Award, Globe } from 'lucide-react';
-import { SectionTitle } from '../components/Layout';
+import { SectionTitle } from '../components/SectionTitle';
 import '../assets/css/About.css';
 
 const About = () => (

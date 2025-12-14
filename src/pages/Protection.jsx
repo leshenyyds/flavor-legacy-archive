@@ -1,6 +1,6 @@
 import React from 'react';
 import { Shield, TrendingUp, Lightbulb, Users, Heart, BookOpen } from 'lucide-react';
-import { SectionTitle } from '../components/Layout';
+import { SectionTitle } from '../components/SectionTitle';
 import '../assets/css/Protection.css';
 
 const Protection = () => (

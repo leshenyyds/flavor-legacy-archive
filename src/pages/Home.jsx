@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { SectionTitle } from '../components/Layout';
+import { SectionTitle } from '../components/SectionTitle';
 import { Banner } from '../components/Banner';
 import { HeritageCard } from '../components/HeritageCard';
 import Loading from '../components/Loading';

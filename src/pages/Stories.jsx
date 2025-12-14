@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SectionTitle } from '../components/Layout';
+import { SectionTitle } from '../components/SectionTitle';
 import Loading from '../components/Loading';
 import { addComment } from '../store/slices/commentsSlice';
 import { apiService } from '../services/api';
