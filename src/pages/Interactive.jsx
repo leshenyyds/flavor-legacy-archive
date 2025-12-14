@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { vote } from '../store/slices/voteSlice';
 import { SectionTitle } from '../components/SectionTitle';
@@ -12,7 +11,6 @@ const Interactive = () => {
   const [loading, setLoading] = useState(true);
   const [quizData, setQuizData] = useState([]);
   const [diyData, setDiyData] = useState([]);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const voteOptions = useSelector((state) => state.vote.options);
 
@@ -52,7 +50,11 @@ const Interactive = () => {
               <div 
                 key={item.id} 
                 className={`diy-card diy-card-${item.type}`}
-                onClick={() => item.url && navigate(item.url)}
+                onClick={() => {
+                  if (item.url) {
+                    window.open(item.url, '_blank', 'noopener,noreferrer');
+                  }
+                }}
               >
                 <h4 className="diy-card-title">{item.title}</h4>
                 <p className="diy-card-difficulty">难度：{item.difficulty}</p>
