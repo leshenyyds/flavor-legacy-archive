@@ -12,7 +12,7 @@ export const Footer = () => {
             以数字之力，传承舌尖上的非遗文化。让更多人看见、了解、爱上非遗美食。
           </p>
           <div className="footer-copyright">
-            © 2023 Flavor Legacy Archive. All rights reserved.
+            © 版权所有 章康乐 徐诗祯
           </div>
         </div>
       </div>
