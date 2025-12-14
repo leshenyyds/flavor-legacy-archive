@@ -1,32 +1,209 @@
 /* Protection Page */
 .protection-container {
-  max-width: 56rem;
+  max-width: 80rem;
   margin: 0 auto;
   padding: 2rem 1rem;
-  line-height: 1.75;
 }
 
-.protection-title {
-  font-size: 2.25rem;
-  font-family: "Noto Serif SC", serif;
+.protection-section {
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-icon {
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 2rem;
+  color: var(--primary-color);
+  margin: 0;
 }
 
 .protection-box {
   background-color: white;
-  padding: 1.5rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
-  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  border-top: 4px solid var(--secondary-color);
 }
 
-.call-to-action {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 2rem;
-  border-radius: 0.25rem;
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e7e5e4;
+}
+
+.stat-item {
   text-align: center;
-  margin-top: 2rem;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #78716c;
+}
+
+.protection-text {
+  color: #57534e;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Challenges Section */
+.challenge-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+  border-left: 4px solid var(--accent-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.challenge-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.challenge-icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: #fff7ed;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.challenge-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.challenge-desc {
+  color: #57534e;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Innovation Section */
+.innovation-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  border-top: 4px solid var(--secondary-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.innovation-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.innovation-badge {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.innovation-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.innovation-desc {
+  color: #57534e;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Call to Action */
+.call-to-action {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #703810 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-top: 3rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.action-icon {
+  margin: 0 auto 1rem;
+  opacity: 0.9;
+}
+
+.action-title {
+  font-size: 1.75rem;
+  font-family: "Noto Serif SC", serif;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.action-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.action-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+  .challenges-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .innovation-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .action-items {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
 }
 
