@@ -1,0 +1,93 @@
+/* Banner Styles */
+.banner-container {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.banner-slide {
+  position: absolute;
+  inset: 0;
+  transition: opacity 1000ms;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, #fb923c, #ea580c);
+}
+
+.banner-fallback h2 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.banner-title {
+  font-family: "Noto Serif SC", serif;
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.banner-subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.banner-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  border: 2px solid var(--secondary-color);
+  transition: transform 0.3s, background-color 0.3s;
+  text-decoration: none;
+}
+
+.banner-btn:hover {
+  background-color: #703810;
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .banner-container {
+    height: 500px;
+  }
+  .banner-title {
+    font-size: 3.75rem;
+  }
+  .banner-subtitle {
+    font-size: 1.5rem;
+  }
+}
+

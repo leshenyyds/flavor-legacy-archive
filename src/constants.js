@@ -1,3 +1,7 @@
+import banner1 from './assets/image/Banner1.jpg';
+import banner2 from './assets/image/Banner2.jpg';
+import banner3 from './assets/image/Banner3.jpg';
+
 export const NAV_LINKS = [
   { name: '首页', path: '/', icon: 'Home' },
   { name: '非遗名录', path: '/archive', icon: 'Book' },
@@ -8,6 +12,33 @@ export const NAV_LINKS = [
   { name: '互动专区', path: '/interactive', icon: 'MessageCircle' },
   { name: '保护发展', path: '/protection', icon: 'Shield' },
   { name: '关于我们', path: '/about', icon: 'Info' },
+];
+
+export const BANNERS = [
+  { 
+    title: '北京烤鸭技艺', 
+    img: banner1,
+    overlayTitle: '一口非遗，一味传承',
+    overlaySubtitle: '解锁舌尖上的文化密码',
+    linkTo: '/archive',
+    buttonText: '探索美味'
+  },
+  { 
+    title: '四川火锅调制', 
+    img: banner2,
+    overlayTitle: '一口非遗，一味传承',
+    overlaySubtitle: '解锁舌尖上的文化密码',
+    linkTo: '/archive',
+    buttonText: '探索美味'
+  },
+  { 
+    title: '广东早茶制作', 
+    img: banner3,
+    overlayTitle: '一口非遗，一味传承',
+    overlaySubtitle: '解锁舌尖上的文化密码',
+    linkTo: '/archive',
+    buttonText: '探索美味'
+  },
 ];
 
 export const HERITAGE_ITEMS = [

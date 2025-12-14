@@ -1,41 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { SectionTitle } from '../components/Layout';
 import { Banner } from '../components/Banner';
 import { HeritageCard } from '../components/HeritageCard';
-import { HERITAGE_ITEMS, NEWS } from '../constants';
+import { HERITAGE_ITEMS, NEWS, BANNERS } from '../constants';
 import '../assets/css/Home.css';
 
 const Home = () => {
   const featuredItems = HERITAGE_ITEMS.slice(0, 3);
-  const [imageError, setImageError] = useState({});
-  const banners = [
-    { 
-      title: '北京烤鸭技艺', 
-      img: 'https://picsum.photos/1200/500?random=1',
-      overlayTitle: '一口非遗，一味传承',
-      overlaySubtitle: '解锁舌尖上的文化密码',
-      linkTo: '/archive',
-      buttonText: '探索美味'
-    },
-    { 
-      title: '四川火锅调制', 
-      img: 'https://picsum.photos/1200/500?random=2',
-      overlayTitle: '一口非遗，一味传承',
-      overlaySubtitle: '解锁舌尖上的文化密码',
-      linkTo: '/archive',
-      buttonText: '探索美味'
-    },
-    { 
-      title: '广东早茶制作', 
-      img: 'https://picsum.photos/1200/500?random=3',
-      overlayTitle: '一口非遗，一味传承',
-      overlaySubtitle: '解锁舌尖上的文化密码',
-      linkTo: '/archive',
-      buttonText: '探索美味'
-    },
-  ];
 
 
   // 确保数据存在
@@ -50,7 +23,7 @@ const Home = () => {
   return (
     <div className="animate-fade-in" style={{ opacity: 1 }}>
       {/* Banner */}
-      <Banner banners={banners} autoPlayInterval={5000} />
+      <Banner banners={BANNERS} autoPlayInterval={5000} />
 
       <div className="home-content" style={{ maxWidth: '80rem', margin: '0 auto', padding: '3rem 1rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
         
