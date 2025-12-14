@@ -7,6 +7,21 @@ import Loading from '../components/Loading';
 import { DEFAULT_IMAGE } from '../assets/data/commonData';
 import '../assets/css/Detail.css';
 
+// 将 Bilibili 视频链接转换为嵌入链接
+const getBilibiliEmbedUrl = (url) => {
+  if (!url) return '';
+  
+  // 提取 BV 号
+  const bvidMatch = url.match(/BV[\w]+/);
+  if (bvidMatch) {
+    const bvid = bvidMatch[0];
+    return `https://player.bilibili.com/player.html?bvid=${bvid}&autoplay=0`;
+  }
+  
+  // 如果不是 Bilibili 链接，返回原链接（可用于其他视频平台）
+  return url;
+};
+
 const Detail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -103,6 +118,55 @@ const Detail = () => {
       </div>
 
       <div className="detail-grid">
+        {/* Left Sidebar */}
+        <div className="space-y-8">
+          {/* Video */}
+          {item.details?.videoUrl ? (
+            <div className="video-container">
+              <iframe
+                src={getBilibiliEmbedUrl(item.details.videoUrl)}
+                className="video-iframe"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title={`${item.name}制作实录`}
+              ></iframe>
+            </div>
+          ) : (
+            <div className="video-placeholder group">
+              <img src={item.image} className="video-thumb" />
+              <PlayCircle size={48} className="play-icon" />
+              <div className="absolute bottom-2 left-2 text-white text-xs z-10">全程制作实录</div>
+            </div>
+          )}
+
+          {/* Recommendations */}
+          <div className="detail-section">
+            <h3 className="font-bold text-stone-800 mb-4">相关推荐</h3>
+            <ul className="rec-list">
+              {relatedItems.map(rec => (
+                <li key={rec.id}>
+                  <Link to={`/detail/${rec.id}`} className="rec-link">
+                    <img src={rec.image} className="rec-thumb" />
+                    <div className="rec-info">
+                      <p>{rec.name}</p>
+                      <p className="text-xs text-stone-500">{rec.region}</p>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        {/* Right Sidebar - Culture */}
+        <div className="space-y-8">
+          {/* Culture */}
+          <section className="detail-section">
+            <h2 className="section-head">文化内涵</h2>
+            <p className="text-stone-700 leading-relaxed">{item.details?.culture}</p>
+          </section>
+        </div>
+
+        </div>
+
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-8">
           
@@ -129,46 +193,29 @@ const Detail = () => {
             <div className="prose text-stone-700">
               <p>{item.details?.history}</p>
             </div>
-            <div className="mt-4 h-40 bg-stone-200 rounded flex items-center justify-center text-stone-500">
-              [模拟老照片/史料展示区域]
-            </div>
-          </section>
-
-          {/* Culture */}
-          <section className="detail-section">
-            <h2 className="section-head">文化内涵</h2>
-            <p className="text-stone-700 leading-relaxed">{item.details?.culture}</p>
+            {item.details?.historyImages && item.details.historyImages.length > 0 && (
+              <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                {item.details.historyImages.map((img, idx) => (
+                  <div key={idx} className="history-image-wrapper">
+                    <img 
+                      src={img} 
+                      alt={`${item.name}历史照片 ${idx + 1}`}
+                      className="history-image"
+                      onError={(e) => { e.target.src = DEFAULT_IMAGE; }}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+            {(!item.details?.historyImages || item.details.historyImages.length === 0) && (
+              <div className="mt-4 h-40 bg-stone-200 rounded flex items-center justify-center text-stone-500">
+                [模拟老照片/史料展示区域]
+              </div>
+            )}
           </section>
 
         </div>
 
-        {/* Sidebar */}
-        <div className="space-y-8">
-          {/* Video */}
-          <div className="video-placeholder group">
-             <img src={item.image} className="video-thumb" />
-             <PlayCircle size={48} className="play-icon" />
-             <div className="absolute bottom-2 left-2 text-white text-xs z-10">全程制作实录</div>
-          </div>
-
-          {/* Recommendations */}
-          <div className="detail-section">
-            <h3 className="font-bold text-stone-800 mb-4">相关推荐</h3>
-            <ul className="rec-list">
-              {relatedItems.map(rec => (
-                <li key={rec.id}>
-                  <Link to={`/detail/${rec.id}`} className="rec-link">
-                    <img src={rec.image} className="rec-thumb" />
-                    <div className="rec-info">
-                      <p>{rec.name}</p>
-                      <p className="text-xs text-stone-500">{rec.region}</p>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
       </div>
     </div>
   );
