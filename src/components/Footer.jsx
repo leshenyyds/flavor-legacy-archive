@@ -1,5 +1,5 @@
 import React from 'react';
-import { DEFAULT_IMAGE } from '../constants';
+import { DEFAULT_IMAGE } from '../assets/data/commonData';
 import '../assets/css/Footer.css';
 
 export const Footer = () => {

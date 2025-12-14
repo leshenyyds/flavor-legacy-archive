@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Home, Book, Hammer, Scroll, User, Map, MessageCircle, Shield, Info } from 'lucide-react';
-import { NAV_LINKS } from '../constants';
+import { NAV_LINKS } from '../assets/data/commonData';
 import '../assets/css/Header.css';
 
 export const Header = () => {

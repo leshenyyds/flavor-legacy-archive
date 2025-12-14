@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
-import { DEFAULT_IMAGE } from '../constants';
+import { DEFAULT_IMAGE } from '../assets/data/commonData';
 import '../assets/css/HeritageCard.css';
 
 export const HeritageCard = ({ item, variant = 'default' }) => {

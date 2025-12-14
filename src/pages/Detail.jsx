@@ -4,7 +4,7 @@ import { apiService } from '../services/api';
 import { PlayCircle, Clock, MapPin, Award } from 'lucide-react';
 import { Breadcrumb } from '../components/Breadcrumb';
 import Loading from '../components/Loading';
-import { DEFAULT_IMAGE } from '../constants';
+import { DEFAULT_IMAGE } from '../assets/data/commonData';
 import '../assets/css/Detail.css';
 
 const Detail = () => {

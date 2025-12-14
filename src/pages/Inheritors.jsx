@@ -32,7 +32,7 @@ const InheritorList = () => {
 
   return (
     <div className="inheritor-container">
-      <SectionTitle title="传承人风采" subtitle="非遗技艺的守护者与传播者" />
+      <SectionTitle title="传承人风采" />
       
       <div className="inheritor-grid">
         {inheritors.map(person => (
