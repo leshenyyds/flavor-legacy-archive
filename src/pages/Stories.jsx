@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { SectionTitle } from '../components/Layout';
 import Loading from '../components/Loading';
+import { addComment } from '../store/slices/commentsSlice';
 import { apiService } from '../services/api';
-import '../assets/css/MiscPages.css';
+import '../assets/css/Stories.css';
 
 const Stories = () => {
   const [loading, setLoading] = useState(true);
   const [stories, setStories] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('全部');
+  const dispatch = useDispatch();
+  const comments = useSelector((state) => state.comments.comments);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,22 +30,45 @@ const Stories = () => {
     fetchData();
   }, []);
 
+  const handleSubmit = () => {
+    if (inputValue.trim()) {
+      dispatch(addComment({ content: inputValue.trim() }));
+      setInputValue('');
+    }
+  };
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+  };
+
+  // 根据选中的分类过滤故事
+  const filteredStories = selectedCategory === '全部' 
+    ? stories 
+    : stories.filter(story => story.category === selectedCategory);
+
   if (loading) {
     return <Loading text="正在加载数据..." />;
   }
+
+  const categories = ['全部', '节日食俗', '地域食俗', '仪式食俗'];
 
   return (
     <div className="stories-container">
       <SectionTitle title="民俗故事" subtitle="品味美食背后的文化温度" />
       <div className="tags-scroll">
-        {['全部', '节日食俗', '地域食俗', '仪式食俗'].map(tag => (
-          <button key={tag} className="tag-btn">
+        {categories.map(tag => (
+          <button 
+            key={tag} 
+            onClick={() => handleCategoryChange(tag)}
+            className={`tag-btn ${selectedCategory === tag ? 'active' : ''}`}
+          >
             {tag}
           </button>
         ))}
       </div>
       <div className="stories-grid">
-        {stories.map(story => (
+        {filteredStories.length > 0 ? (
+          filteredStories.map(story => (
           <div key={story.id} className="story-card">
             <img src={story.image} className="story-img" alt={story.title}/>
             <div className="story-content">
@@ -51,18 +80,48 @@ const Stories = () => {
               <button className="read-btn">阅读全文</button>
             </div>
           </div>
-        ))}
+          ))
+        ) : (
+          <div className="text-center py-12 text-stone-500">
+            <p>暂无该分类的故事</p>
+          </div>
+        )}
       </div>
       <div className="interaction-box">
         <h3 className="text-lg font-bold mb-4">话题互动：你的家乡有哪些和美食相关的民俗？</h3>
-        <div className="bg-white p-3 rounded border border-orange-200 text-stone-400 mb-4 cursor-text">写下你的故事...</div>
+        <div className="mb-4">
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' && inputValue.trim()) {
+                  handleSubmit();
+                }
+              }}
+              placeholder="写下你的故事..."
+              className="flex-1 bg-white p-3 rounded border border-orange-200 text-stone-700 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent"
+            />
+            <button
+              onClick={handleSubmit}
+              disabled={!inputValue.trim()}
+              className="px-6 py-3 bg-primary text-white rounded font-medium hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              style={{ backgroundColor: 'var(--primary-color)' }}
+            >
+              发送
+            </button>
+          </div>
+        </div>
         <div className="space-y-3">
-          <div className="text-sm text-stone-600 border-b border-orange-100 pb-2">
-            <span className="font-bold text-primary" style={{color: 'var(--primary-color)'}}>User123:</span> 我们这过年要吃"年糕"，寓意年年高。
-          </div>
-          <div className="text-sm text-stone-600 border-b border-orange-100 pb-2">
-            <span className="font-bold text-primary" style={{color: 'var(--primary-color)'}}>Foodie:</span> 立夏要吃蛋，挂蛋袋！
-          </div>
+          {comments.map((comment) => (
+            <div key={comment.id} className="text-sm text-stone-600 border-b border-orange-100 pb-2">
+              <span className="font-bold text-primary" style={{color: 'var(--primary-color)'}}>
+                {comment.username}:
+              </span>{' '}
+              {comment.content}
+            </div>
+          ))}
         </div>
       </div>
     </div>
