@@ -6,7 +6,10 @@ import {
   INHERITORS,
   STORIES,
   NEWS,
-  TRIVIAS
+  TRIVIAS,
+  TECHNIQUES,
+  TECHNIQUE_COMPARISON,
+  CRAFTSMAN_QUOTES
 } from '../constants';
 
 // 模拟网络延迟
@@ -144,6 +147,36 @@ export const apiService = {
     await delay(300);
     return {
       data: TRIVIAS,
+      status: 200,
+      message: 'success'
+    };
+  },
+
+  // 获取技艺分类列表
+  getTechniques: async () => {
+    await delay(400);
+    return {
+      data: TECHNIQUES,
+      status: 200,
+      message: 'success'
+    };
+  },
+
+  // 获取技艺对比数据
+  getTechniqueComparison: async () => {
+    await delay(400);
+    return {
+      data: TECHNIQUE_COMPARISON,
+      status: 200,
+      message: 'success'
+    };
+  },
+
+  // 获取匠人语录
+  getCraftsmanQuotes: async () => {
+    await delay(300);
+    return {
+      data: CRAFTSMAN_QUOTES,
       status: 200,
       message: 'success'
     };

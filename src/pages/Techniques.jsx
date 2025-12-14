@@ -1,14 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { SectionTitle } from '../components/Layout';
+import Loading from '../components/Loading';
+import { apiService } from '../services/api';
 import '../assets/css/Techniques.css';
 
 const Techniques = () => {
-  const techniques = [
-    { title: '火工技艺', desc: '烤、炖、蒸、炸', examples: '烤鸭挂炉火控、佛跳墙慢炖' },
-    { title: '调味技艺', desc: '酱料、汤料、腌制', examples: '郫县豆瓣酿制、潮汕牛肉火锅汤底' },
-    { title: '塑形技艺', desc: '面点捏塑、米粉压制', examples: '山西刀削面、广东虾饺捏制' },
-    { title: '发酵技艺', desc: '酒、醋、酱、泡菜', examples: '绍兴黄酒酿造、四川泡菜发酵' },
-  ];
+  const [loading, setLoading] = useState(true);
+  const [techniques, setTechniques] = useState([]);
+  const [comparison, setComparison] = useState([]);
+  const [quotes, setQuotes] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const [techniquesRes, comparisonRes, quotesRes] = await Promise.all([
+          apiService.getTechniques(),
+          apiService.getTechniqueComparison(),
+          apiService.getCraftsmanQuotes()
+        ]);
+
+        setTechniques(techniquesRes.data);
+        setComparison(comparisonRes.data);
+        setQuotes(quotesRes.data);
+      } catch (error) {
+        console.error('Failed to fetch techniques data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loading text="正在加载数据..." />;
+  }
 
   return (
     <div className="tech-container">
@@ -40,21 +67,13 @@ const Techniques = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="font-medium">过桥米线</td>
-                <td>干浆/酸浆</td>
-                <td>两次蒸煮，挤压成型</td>
-              </tr>
-              <tr>
-                <td className="font-medium">桂林米粉</td>
-                <td>早籼米</td>
-                <td>发酵磨浆，揣粉团</td>
-              </tr>
-              <tr>
-                <td className="font-medium">云南饵丝</td>
-                <td>优质大米</td>
-                <td>蒸熟后舂制成块，切丝</td>
-              </tr>
+              {comparison.map((item, idx) => (
+                <tr key={idx}>
+                  <td className="font-medium">{item.name}</td>
+                  <td>{item.material}</td>
+                  <td>{item.technique}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -64,7 +83,7 @@ const Techniques = () => {
       <div className="quotes-section">
         <h3 className="text-center font-serif text-2xl mb-8" style={{color: 'var(--primary-color)'}}>匠人语录</h3>
         <div className="quotes-grid">
-           {['做面要揉够18遍，差一遍都不行', '火候不到，味道就差之千里', '心静，手才稳，味才正'].map((quote, i) => (
+           {quotes.map((quote, i) => (
              <div key={i} className="quote-card">
                <span className="quote-mark">"</span>
                <p className="quote-text">{quote}</p>

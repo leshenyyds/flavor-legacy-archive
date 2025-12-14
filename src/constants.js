@@ -5,7 +5,8 @@ import luosifenImg from './assets/image/螺蛳粉.jpg';
 import kaoyaImg from './assets/image/北京烤鸭.jpg';
 import chaofanImg from './assets/image/扬州炒饭.jpg';
 import zongziImg from './assets/image/粽子.jpg';
-
+import guangdongzaochaImg from './assets/image/广东早茶.jpg';
+import pixiandoubanImg from './assets/image/郫县豆瓣.jpg';
 export const NAV_LINKS = [
   { name: '首页', path: '/', icon: 'Home' },
   { name: '非遗名录', path: '/archive', icon: 'Book' },
@@ -110,7 +111,7 @@ export const HERITAGE_ITEMS = [
     region: '西南',
     year: '2008',
     category: '酱料制作',
-    image: 'https://picsum.photos/400/300?random=4',
+    image: pixiandoubanImg,
     description: '川菜之魂，辣而不燥，醇厚甘甜。',
     inheritorName: '陈师傅',
     details: {
@@ -158,14 +159,14 @@ export const STORIES = [
     title: '粽子的由来：从纪念屈原到各地非遗粽艺',
     category: '节日食俗',
     content: '端午食粽，最初是为了投江喂鱼祭奠屈原，后演变为各地的美食狂欢。嘉兴肉粽、肇庆裹蒸粽，每一地都有不同的非遗技法。',
-    image: 'https://picsum.photos/300/200?random=20'
+    image: zongziImg
   },
   {
     id: 'zaocha',
     title: '广东早茶与岭南生活方式',
     category: '地域食俗',
     content: '"一盅两件"，不仅是吃，更是一种社交。虾饺、烧卖的制作技艺精细入微，体现了岭南人对生活的讲究。',
-    image: 'https://picsum.photos/300/200?random=21'
+    image: guangdongzaochaImg
   }
 ];
 
@@ -183,5 +184,52 @@ export const TRIVIAS = [
     linkTo: '/stories',
     linkText: '阅读更多'
   }
+];
+
+export const TECHNIQUES = [
+  { 
+    title: '火工技艺', 
+    desc: '烤、炖、蒸、炸', 
+    examples: '烤鸭挂炉火控、佛跳墙慢炖' 
+  },
+  { 
+    title: '调味技艺', 
+    desc: '酱料、汤料、腌制', 
+    examples: '郫县豆瓣酿制、潮汕牛肉火锅汤底' 
+  },
+  { 
+    title: '塑形技艺', 
+    desc: '面点捏塑、米粉压制', 
+    examples: '山西刀削面、广东虾饺捏制' 
+  },
+  { 
+    title: '发酵技艺', 
+    desc: '酒、醋、酱、泡菜', 
+    examples: '绍兴黄酒酿造、四川泡菜发酵' 
+  },
+];
+
+export const TECHNIQUE_COMPARISON = [
+  {
+    name: '过桥米线',
+    material: '干浆/酸浆',
+    technique: '两次蒸煮，挤压成型'
+  },
+  {
+    name: '桂林米粉',
+    material: '早籼米',
+    technique: '发酵磨浆，揣粉团'
+  },
+  {
+    name: '云南饵丝',
+    material: '优质大米',
+    technique: '蒸熟后舂制成块，切丝'
+  }
+];
+
+export const CRAFTSMAN_QUOTES = [
+  '做面要揉够18遍，差一遍都不行',
+  '火候不到，味道就差之千里',
+  '心静，手才稳，味才正'
 ];
 
