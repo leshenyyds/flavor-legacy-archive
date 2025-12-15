@@ -104,10 +104,15 @@
   border-radius: 0.5rem;
   border: 2px dashed #e7e5e4;
   height: 450px;
+  color: #a8a29e;
+}
+
+.placeholder-card .ant-card-body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #a8a29e;
+  padding: 0;
+  height: 100%;
 }
 
 /* Info Boxes */
