@@ -64,7 +64,7 @@ const InheritorList = () => {
               className="placeholder-card"
               hoverable={false}
               bordered
-              bodyStyle={{ padding: 0, height: '100%' }}
+              bodyStyle={{ padding: 0, height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
               <div className="text-center">
                 <User size={48} className="mx-auto mb-2 opacity-50"/>
