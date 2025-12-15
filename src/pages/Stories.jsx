@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { List } from 'antd';
+import { List, Empty } from 'antd';
 import { SectionTitle } from '../components/SectionTitle';
 import Loading from '../components/Loading';
 import { addComment } from '../store/slices/commentsSlice';
@@ -82,8 +82,8 @@ const Stories = () => {
           </div>
           ))
         ) : (
-          <div className="text-center py-12 text-stone-500">
-            <p>暂无该分类的故事</p>
+          <div className="story-empty">
+            <Empty description="暂无该分类的故事" image={Empty.PRESENTED_IMAGE_SIMPLE} />
           </div>
         )}
       </div>
