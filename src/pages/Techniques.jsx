@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Card } from 'antd';
 import { SectionTitle } from '../components/SectionTitle';
 import Loading from '../components/Loading';
 import { apiService } from '../services/api';
@@ -78,9 +79,12 @@ const Techniques = () => {
       {/* 4 Main Categories */}
       <div className="tech-grid">
         {techniques.map((t, idx) => (
-          <div 
-            key={idx} 
+          <Card
+            key={idx}
             className={`tech-card ${selectedTechnique?.title === t.title ? 'tech-card-active' : ''}`}
+            hoverable={false}
+            bordered={false}
+            bodyStyle={{ padding: 0, height: '100%' }}
             onClick={() => handleTechniqueClick(t)}
           >
             {t.image && (
@@ -93,7 +97,7 @@ const Techniques = () => {
             <div className="tech-example">
               <span className="font-bold">举例：</span>{t.examples}
             </div>
-          </div>
+          </Card>
         ))}
       </div>
 
