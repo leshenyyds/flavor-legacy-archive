@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Empty } from 'antd';
 import '../assets/css/Quiz.css';
 
 const Quiz = ({ quizData = [] }) => {
@@ -7,7 +8,11 @@ const Quiz = ({ quizData = [] }) => {
   const [showResult, setShowResult] = useState(false);
 
   if (!quizData || quizData.length === 0) {
-    return <section className="quiz-section">暂无题目数据</section>;
+    return (
+      <section className="quiz-section">
+        <Empty description="暂无题目数据" image={Empty.PRESENTED_IMAGE_SIMPLE} />
+      </section>
+    );
   }
 
   const currentQuestion = quizData[currentIndex];
