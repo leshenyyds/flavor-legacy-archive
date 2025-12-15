@@ -1,15 +1,11 @@
 import React from 'react';
+import { Spin } from 'antd';
 import '../assets/css/Loading.css';
 
 const Loading = ({ text = '正在加载...' }) => {
   return (
     <div className="loading-container">
-      <div className="loading-spinner">
-        <div className="spinner-circle"></div>
-        <div className="spinner-circle"></div>
-        <div className="spinner-circle"></div>
-      </div>
-      <p className="loading-text">{text}</p>
+      <Spin size="large" tip={text} />
     </div>
   );
 };
