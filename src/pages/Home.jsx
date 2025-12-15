@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { Table } from 'antd';
+import { Table, Empty } from 'antd';
 import { SectionTitle } from '../components/SectionTitle';
 import { Banner } from '../components/Banner';
 import { HeritageCard } from '../components/HeritageCard';
@@ -67,7 +67,7 @@ const Home = () => {
   if (!featuredItems || featuredItems.length === 0) {
     return (
       <div className="home-content">
-        <p>暂无数据</p>
+        <Empty description="暂无数据" image={Empty.PRESENTED_IMAGE_SIMPLE} />
       </div>
     );
   }
