@@ -40,6 +40,14 @@
   gap: 2rem;
 }
 
+.story-empty {
+  grid-column: 1 / -1;
+  padding: 3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .story-card {
   background-color: white;
   display: flex;
