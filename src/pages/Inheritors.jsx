@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Card } from 'antd';
 import { SectionTitle } from '../components/SectionTitle';
 import Loading from '../components/Loading';
 import { apiService } from '../services/api';
@@ -38,7 +39,13 @@ const InheritorList = () => {
         {[1, 2, 3, 4, 5, 6].map(id => {
           const person = inheritors.find(p => p.id === String(id));
           return person ? (
-            <div key={person.id} className="inheritor-card group">
+            <Card
+              key={person.id}
+              className="inheritor-card group"
+              hoverable={false}
+              bordered={false}
+              bodyStyle={{ padding: 0, height: '100%' }}
+            >
               <div className="inheritor-img-wrap">
                  <img src={person.image} alt={person.name} className="inheritor-img" />
               </div>
@@ -50,14 +57,20 @@ const InheritorList = () => {
                   查看故事
                 </Link>
               </div>
-            </div>
+            </Card>
           ) : (
-            <div key={id} className="placeholder-card">
+            <Card
+              key={id}
+              className="placeholder-card"
+              hoverable={false}
+              bordered
+              bodyStyle={{ padding: 0, height: '100%' }}
+            >
               <div className="text-center">
                 <User size={48} className="mx-auto mb-2 opacity-50"/>
                 <p>虚位以待</p>
               </div>
-            </div>
+            </Card>
           );
         })}
       </div>
