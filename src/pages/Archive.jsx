@@ -4,6 +4,7 @@ import { FilterSection } from '../components/FilterSection';
 import { HeritageCard } from '../components/HeritageCard';
 import Loading from '../components/Loading';
 import { apiService } from '../services/api';
+import { Empty } from 'antd';
 import '../assets/css/Archive.css';
 
 const Archive = () => {
@@ -54,18 +55,17 @@ const Archive = () => {
         regions={regions}
       />
 
-      {/* Stats */}
-      <div className="stats-bar">
-        <span className="font-bold">统计：</span> 
-        共收录 <span className="font-bold" style={{color: 'var(--primary-color)'}}>{heritageItems.length}</span> 项非遗美食，
-        当前显示 <span className="font-bold" style={{color: 'var(--accent-color)'}}>{filteredItems.length}</span> 项。
-      </div>
-
       {/* Grid */}
       <div className="archive-grid">
-        {filteredItems.map(item => (
-          <HeritageCard key={item.id} item={item} variant="archive" />
-        ))}
+        {filteredItems.length > 0 ? (
+          filteredItems.map(item => (
+            <HeritageCard key={item.id} item={item} variant="archive" />
+          ))
+        ) : (
+          <div className="archive-empty">
+            <Empty description="暂无符合筛选的项目" image={Empty.PRESENTED_IMAGE_SIMPLE} />
+          </div>
+        )}
       </div>
 
     </div>
