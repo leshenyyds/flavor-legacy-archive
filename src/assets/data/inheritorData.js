@@ -26,7 +26,7 @@ export const INHERITORS = [
     image: shushifuImg,
     description: '坚守传统工艺，拒绝工业化速成汤底。',
     story: '为了寻找最适合的酸笋，走遍了柳州周边的山村。',
-    skills: ['suxing','tiaowei'], // 塑形技艺
+    skills: ['suxing','tiaowei'],
     plans: '正在整理螺蛳粉制作口诀，准备出版书籍。',
     quote: '这一碗粉，不仅是味道，更是乡愁。'
   }
