@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { Table } from 'antd';
 import { SectionTitle } from '../components/SectionTitle';
 import { Banner } from '../components/Banner';
 import { HeritageCard } from '../components/HeritageCard';
@@ -14,6 +15,24 @@ const Home = () => {
   const [banners, setBanners] = useState([]);
   const [news, setNews] = useState([]);
   const [trivia, setTrivia] = useState(null);
+
+  const newsColumns = [
+    {
+      title: '标题',
+      dataIndex: 'title',
+      key: 'title',
+      ellipsis: true,
+      render: (text) => <span className="text-stone-700">{text}</span>,
+    },
+    {
+      title: '日期',
+      dataIndex: 'date',
+      key: 'date',
+      width: 120,
+      align: 'right',
+      render: (text) => <span className="text-stone-400 text-sm">{text}</span>,
+    },
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -78,14 +97,14 @@ const Home = () => {
               <span className="w-2 h-6 bg-primary rounded-full block mr-2" style={{ backgroundColor: 'var(--primary-color)' }}></span>
               非遗动态
             </h3>
-            <div className="space-y-4">
-              {news.map((item) => (
-                <div key={item.id} className="news-item">
-                  <p className="text-stone-700 truncate flex-1">{item.title}</p>
-                  <span className="text-stone-400 text-sm ml-4">{item.date}</span>
-                </div>
-              ))}
-            </div>
+            <Table
+              dataSource={news.map(item => ({ ...item, key: item.id }))}
+              columns={newsColumns}
+              size="small"
+              pagination={false}
+              showHeader={false}
+              rowKey="key"
+            />
           </div>
 
           {/* Trivia */}
