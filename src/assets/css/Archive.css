@@ -20,6 +20,14 @@
   gap: 1.5rem;
 }
 
+.archive-empty {
+  grid-column: 1 / -1;
+  padding: 3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .policy-link {
   margin-top: 3rem;
   text-align: center;
