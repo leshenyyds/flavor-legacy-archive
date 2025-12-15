@@ -209,7 +209,7 @@ const Detail = () => {
             )}
             {(!item.details?.historyImages || item.details.historyImages.length === 0) && (
               <div className="mt-4 h-40 bg-stone-200 rounded flex items-center justify-center text-stone-500">
-                [模拟老照片/史料展示区域]
+                [暂无照片]
               </div>
             )}
           </section>
