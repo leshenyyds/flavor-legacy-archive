@@ -2,6 +2,9 @@ import luosifenImg from '../image/螺蛳粉.jpg';
 import luosifenImg1 from '../image/螺蛳粉-1.png';
 import luosifenImg2 from '../image/螺蛳粉-2.png';
 import luosifenImg3 from '../image/螺蛳粉-3.png';
+import kaoyaImg1 from '../image/北京烤鸭-1.png';
+import kaoyaImg2 from '../image/北京烤鸭-2.png';
+import kaoyaImg3 from '../image/北京烤鸭-3.png';
 import kaoyaImg from '../image/北京烤鸭.jpg';
 import chaofanImg from '../image/扬州炒饭.jpg';
 import pixiandoubanImg from '../image/郫县豆瓣.jpg';
@@ -41,7 +44,7 @@ export const HERITAGE_ITEMS = [
     inheritorId: '1',
     details: {
       history: '从宫廷菜到民间名吃，全聚德、便宜坊等老字号见证了其百年历史。',
-      historyImages: [],
+      historyImages: [kaoyaImg1, kaoyaImg2, kaoyaImg3],
       videoUrl: 'https://www.bilibili.com/video/BV1EY4y1B7Mc/',
       technique: [
         '果木选材：必须使用枣木或梨木',
