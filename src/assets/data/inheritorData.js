@@ -12,7 +12,7 @@ export const INHERITORS = [
     image: goushifuImg,
     description: '40年一刀一面，守护山西面食灵魂。',
     story: '15岁学削面，练到手腕肿，3年才出师。',
-    skills: ['suxing'], // 塑形技艺
+    skills: ['suxing'],
     plans: '已收12名徒弟，每周去小学教孩子削面基础。',
     quote: '非遗不是老古董，是要有人做，有人吃，才能活。'
   },
