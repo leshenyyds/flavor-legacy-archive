@@ -17,7 +17,7 @@ export const INHERITORS = [
     quote: '非遗不是老古董，是要有人做，有人吃，才能活。'
   },
   {
-    id: '2',
+    id: '2',//1
     name: '鼠师傅',
     age: 65,
     project: '柳州螺蛳粉制作技艺',
