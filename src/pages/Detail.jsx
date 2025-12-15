@@ -5,6 +5,7 @@ import { PlayCircle, Clock, MapPin, Award } from 'lucide-react';
 import { Breadcrumb } from '../components/Breadcrumb';
 import Loading from '../components/Loading';
 import { DEFAULT_IMAGE } from '../assets/data/commonData';
+import { Empty } from 'antd';
 import '../assets/css/Detail.css';
 
 // 将 Bilibili 视频链接转换为嵌入链接
@@ -208,8 +209,11 @@ const Detail = () => {
               </div>
             )}
             {(!item.details?.historyImages || item.details.historyImages.length === 0) && (
-              <div className="mt-4 h-40 bg-stone-200 rounded flex items-center justify-center text-stone-500">
-                [暂无照片]
+              <div className="mt-4">
+                <Empty
+                  image={Empty.PRESENTED_IMAGE_SIMPLE}
+                  description="暂无照片"
+                />
               </div>
             )}
           </section>
