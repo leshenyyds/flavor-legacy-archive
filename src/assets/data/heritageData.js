@@ -7,8 +7,12 @@ import kaoyaImg2 from '../image/北京烤鸭-2.png';
 import kaoyaImg3 from '../image/北京烤鸭-3.png';
 import kaoyaImg from '../image/北京烤鸭.jpg';
 import chaofanImg from '../image/扬州炒饭.jpg';
+import chaofanImg1 from '../image/扬州炒饭-1.png';
+import chaofanImg2 from '../image/扬州炒饭-2.png';
 import pixiandoubanImg from '../image/郫县豆瓣.jpg';
-
+import pixiandoubanImg1 from '../image/郫县豆瓣-1.png';
+import pixiandoubanImg2 from '../image/郫县豆瓣-2.png';
+import pixiandoubanImg3 from '../image/郫县豆瓣-3.png';
 export const HERITAGE_ITEMS = [
   {
     id: 'luosifen',
@@ -67,7 +71,7 @@ export const HERITAGE_ITEMS = [
     inheritorId: '1', 
     details: {
       history: '源于隋朝越国公杨素爱吃的碎金饭。',
-      historyImages: [],
+      historyImages: [chaofanImg1, chaofanImg2],
       videoUrl: 'https://www.bilibili.com/video/BV1To4y1u7M2/',
       technique: ['选米：籼米', '配料：海参、干贝、虾仁等8种', '火候：武火快炒'],
       culture: '淮扬菜精细做工的代表。'
@@ -85,7 +89,7 @@ export const HERITAGE_ITEMS = [
     inheritorId: '1', 
     details: {
       history: '三百余年历史，川菜味型的基石。',
-      historyImages: [],
+      historyImages: [pixiandoubanImg1, pixiandoubanImg2, pixiandoubanImg3],
       videoUrl: 'https://www.bilibili.com/video/BV1VtnRzLEAc/',
       technique: ['翻、晒、露：日晒夜露', '发酵周期：长达一年以上'],
       culture: '体现了四川人对滋味的极致追求。'
