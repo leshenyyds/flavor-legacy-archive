@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { List } from 'antd';
 import { SectionTitle } from '../components/SectionTitle';
 import Loading from '../components/Loading';
 import { addComment } from '../store/slices/commentsSlice';
@@ -112,16 +113,26 @@ const Stories = () => {
             </button>
           </div>
         </div>
-        <div className="space-y-3">
-          {comments.map((comment) => (
-            <div key={comment.id} className="text-sm text-stone-600 border-b border-orange-100 pb-2">
-              <span className="font-bold text-primary" style={{color: 'var(--primary-color)'}}>
-                {comment.username}:
-              </span>{' '}
-              {comment.content}
-            </div>
-          ))}
-        </div>
+        <List
+          dataSource={comments}
+          itemLayout="horizontal"
+          renderItem={(comment) => (
+            <List.Item style={{ padding: '8px 0', borderBottom: '1px solid #ffedd5' }}>
+              <List.Item.Meta
+                title={
+                  <span className="font-bold" style={{ color: 'var(--primary-color)' }}>
+                    {comment.username}
+                  </span>
+                }
+                description={
+                  <span className="text-sm text-stone-600">
+                    {comment.content}
+                  </span>
+                }
+              />
+            </List.Item>
+          )}
+        />
       </div>
     </div>
   );
