@@ -6,8 +6,8 @@ import { store, persistor } from './store/store';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import Home from './pages/Home';
-import Archive from './pages/Archive';
-import Detail from './pages/Detail';
+import ArchiveList from './pages/ArchiveList';
+import ArchiveDetail from './pages/ArchiveDetail';
 import Techniques from './pages/Techniques';
 import Stories from './pages/Stories';
 import MapPage from './pages/MapPage';
@@ -15,7 +15,8 @@ import Interactive from './pages/Interactive';
 import Protection from './pages/Protection';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
-import { InheritorList, InheritorDetail } from './pages/Inheritors';
+import InheritorList from './pages/InheritorList';
+import InheritorDetail from './pages/InheritorDetail';
 import './assets/css/App.css';
 
 // Scroll to top on route change
@@ -38,8 +39,8 @@ const App = () => {
             <main className="flex-grow" style={{ flex: '1 1 auto', minHeight: '0', padding: '20px' }}>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/archive" element={<Archive />} />
-                <Route path="/detail/:id" element={<Detail />} />
+                <Route path="/archive" element={<ArchiveList />} />
+                <Route path="/archive/:id" element={<ArchiveDetail />} />
                 <Route path="/techniques" element={<Techniques />} />
                 <Route path="/stories" element={<Stories />} />
                 <Route path="/inheritors" element={<InheritorList />} />

@@ -35,7 +35,7 @@ export const HeritageCard = ({ item, variant = 'default' }) => {
             <span>{item.region}</span>
             <span>{item.year}入选</span>
           </div>
-          <Link to={`/detail/${item.id}`} className="view-btn">
+          <Link to={`/archive/${item.id}`} className="view-btn">
             查看详情
           </Link>
         </div>
@@ -70,7 +70,7 @@ export const HeritageCard = ({ item, variant = 'default' }) => {
           <span className="card-tag">{item.level}</span>
         </div>
         <p className="card-desc">{item.description}</p>
-        <Link to={`/detail/${item.id}`} className="card-link">
+        <Link to={`/archive/${item.id}`} className="card-link">
           查看详情
         </Link>
       </div>

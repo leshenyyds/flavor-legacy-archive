@@ -144,7 +144,7 @@ const Techniques = () => {
                     {getHeritageItemsForTechnique().map((heritage) => (
                       <Link 
                         key={heritage.id} 
-                        to={`/detail/${heritage.id}`}
+                        to={`/archive/${heritage.id}`}
                         className="heritage-icon-item"
                       >
                         <div className="heritage-icon-image">
