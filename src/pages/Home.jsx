@@ -81,7 +81,11 @@ const Home = () => {
         
         {/* Recommendations */}
         <section style={{ width: '100%' }}>
+
+
           <SectionTitle title="非遗美食推荐" subtitle="品味历史沉淀的味道" />
+
+
           <div className="rec-grid">
             {featuredItems.map((item) => (
               <HeritageCard key={item.id} item={item} variant="default" />

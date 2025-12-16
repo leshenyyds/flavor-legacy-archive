@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -19,24 +19,44 @@ import InheritorList from './pages/InheritorList';
 import InheritorDetail from './pages/InheritorDetail';
 import './assets/css/App.css';
 
-// Scroll to top on route change
+
 const ScrollToTop = () => {
+
+  // 获取当前路径名
   const { pathname } = useLocation();
-  React.useEffect(() => {
+ // A->B
+  useEffect(() => {
+    // 钩子要执行的函数
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [
+      pathname
+      // 这个钩子触发的时候
+      // 监听的变量数组（放多个变量）
+  ]);
+
+
+  window.scrollTo(0, 0);
+
   return null;
 };
 
+
+
+
+
 const App = () => {
+  console.log('App 组件执行了（重渲染）');
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+
+
         <Router>
           <div className="flex flex-col min-h-screen" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#FDF5E6' }}>
             <ScrollToTop />
             <Header />
             <main className="flex-grow" style={{ flex: '1 1 auto', minHeight: '0', padding: '20px' }}>
+
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/archive" element={<ArchiveList />} />
@@ -52,14 +72,20 @@ const App = () => {
                 <Route path="/404" element={<NotFound />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
+
             </main>
             <Footer />
           </div>
         </Router>
+
+
       </PersistGate>
     </Provider>
   );
 };
+
+
+
 
 export default App;
 

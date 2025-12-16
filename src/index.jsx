@@ -12,6 +12,7 @@ const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
+      {/* React 启动项*/}
     <App />
   </React.StrictMode>
 );
