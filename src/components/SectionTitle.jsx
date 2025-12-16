@@ -11,6 +11,7 @@ export const SectionTitle = ({ title, subtitle }) => (
       {/*subtitle有值的情况下，渲染 <p>{subtitle}</p>*/}
       {/*subtitle无值的情况下，不渲染*/}
     {subtitle && <p>{subtitle}</p>}
+
   </div>
 );
 

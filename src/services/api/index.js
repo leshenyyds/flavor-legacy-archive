@@ -1,26 +1,14 @@
 import axios from 'axios';
-import * as commonApi from './commonApi';
-import * as bannerApi from './bannerApi';
-import * as heritageApi from './heritageApi';
-import * as inheritorApi from './inheritorApi';
-import * as storyApi from './storyApi';
-import * as newsApi from './newsApi';
-import * as triviaApi from './triviaApi';
-import * as techniqueApi from './techniqueApi';
-import * as mapApi from './mapApi';
-import * as quizApi from './quizApi';
-import * as diyApi from './diyApi';
 
-// 创建 axios 实例
-const api = axios.create({
-  baseURL: '/api', // 模拟 API 基础路径
+// 创建 axios 实例（和生产环境一致）
+const request = axios.create({
+  baseURL: '/api',
   timeout: 5000,
 });
 
 // 请求拦截器 - 可以在这里添加 token 等
-api.interceptors.request.use(
+request.interceptors.request.use(
   (config) => {
-    // 模拟请求头
     config.headers['Content-Type'] = 'application/json';
     return config;
   },
@@ -29,10 +17,15 @@ api.interceptors.request.use(
   }
 );
 
-// 响应拦截器 - 可以在这里处理错误
-api.interceptors.response.use(
+// 响应拦截器 - 统一处理响应数据格式
+request.interceptors.response.use(
   (response) => {
-    return response;
+    // 返回格式：{ data: ..., status: ..., message: ... }
+    return {
+      data: response.data.data,
+      status: response.data.status || response.status,
+      message: response.data.message || 'success'
+    };
   },
   (error) => {
     console.error('API Error:', error);
@@ -40,44 +33,42 @@ api.interceptors.response.use(
   }
 );
 
-// 统一导出 API 服务
+// 统一导出 API 服务 - 直接写 Axios 请求（和生产环境一致）
 export const apiService = {
   // Common
-  getNavLinks: commonApi.getNavLinks,
+  getNavLinks: () => request.get('/nav-links'),
   
   // Banner
-  getBanners: bannerApi.getBanners,
+  getBanners: () => request.get('/banners'),
   
   // Heritage
-  getHeritageItems: heritageApi.getHeritageItems,
-  getHeritageItemById: heritageApi.getHeritageItemById,
+  getHeritageItems: () => request.get('/heritage'),
+  getHeritageItemById: (id) => request.get(`/heritage/${id}`),
   
   // Inheritor
-  getInheritors: inheritorApi.getInheritors,
-  getInheritorById: inheritorApi.getInheritorById,
+  getInheritors: () => request.get('/inheritors'),
+  getInheritorById: (id) => request.get(`/inheritors/${id}`),
   
   // Story
-  getStories: storyApi.getStories,
+  getStories: () => request.get('/stories'),
   
   // News
-  getNews: newsApi.getNews,
+  getNews: () => request.get('/news'),
   
   // Trivia
-  getTrivias: triviaApi.getTrivias,
+  getTrivias: () => request.get('/trivias'),
   
   // Technique
-  getTechniques: techniqueApi.getTechniques,
-  getTechniqueByTitle: techniqueApi.getTechniqueByTitle,
+  getTechniques: () => request.get('/techniques'),
+  getTechniqueByTitle: (title) => request.get(`/techniques/${encodeURIComponent(title)}`),
   
   // Map
-  getMapData: mapApi.getMapData,
+  getMapData: () => request.get('/map'),
   
   // Quiz
-  getQuizData: quizApi.getQuizData,
+  getQuizData: () => request.get('/quiz'),
   
   // DIY
-  getDiyData: diyApi.getDiyData,
+  getDiyData: () => request.get('/diy'),
 };
-
-export default api;
 

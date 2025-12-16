@@ -20,12 +20,13 @@ const voteSlice = createSlice({
         option.votes += 1;
       }
     },
-    resetVotes: (state) => {
-      state.options = initialState.options.map(opt => ({ ...opt }));
-    },
   },
 });
 
-export const { vote, resetVotes } = voteSlice.actions;
+export const { vote} = voteSlice.actions;
+// const vote = (optionId) => ({
+//   type: 'vote/vote',
+//   payload: optionId
+// });
 export default voteSlice.reducer;
 

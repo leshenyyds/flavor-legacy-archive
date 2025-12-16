@@ -4,12 +4,6 @@ import storage from 'redux-persist/lib/storage/session'; // 使用 sessionStorag
 import commentsReducer from './slices/commentsSlice';
 import voteReducer from './slices/voteSlice';
 
-// 配置持久化
-const persistConfig = {
-  key: 'root',
-  storage, // 使用 sessionStorage，关闭标签页后数据会清除
-};
-
 // 持久化 comments reducer
 const commentsPersistConfig = {
   key: 'comments',

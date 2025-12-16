@@ -208,7 +208,7 @@ const ArchiveDetail = () => {
                 ))}
               </div>
             )}
-            {(!item.details?.historyImages || item.details.historyImages.length === 0) && (
+            {(item.details.historyImages.length === 0) && (
               <div className="mt-4">
                 <Empty
                   image={Empty.PRESENTED_IMAGE_SIMPLE}
