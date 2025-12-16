@@ -71,7 +71,7 @@ export const HERITAGE_ITEMS = [
     inheritorId: '1', 
     details: {
       history: '源于隋朝越国公杨素爱吃的碎金饭。',
-      historyImages: [chaofanImg1, chaofanImg2],
+      historyImages: [],
       videoUrl: 'https://www.bilibili.com/video/BV1To4y1u7M2/',
       technique: ['选米：籼米', '配料：海参、干贝、虾仁等8种', '火候：武火快炒'],
       culture: '淮扬菜精细做工的代表。'

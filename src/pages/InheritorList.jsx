@@ -33,7 +33,7 @@ const InheritorList = () => {
 
   return (
     <div className="inheritor-container">
-      <SectionTitle title="传承人风采" />
+      <SectionTitle title="传承人风采"  />
       
       <div className="inheritor-grid">
         {[1, 2, 3, 4, 5, 6].map(id => {
