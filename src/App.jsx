@@ -20,6 +20,7 @@ import InheritorDetail from './pages/InheritorDetail';
 import './assets/css/App.css';
 
 
+
 const ScrollToTop = () => {
 
   // 获取当前路径名
