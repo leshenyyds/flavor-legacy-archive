@@ -8,19 +8,11 @@ import { DEFAULT_IMAGE } from '../assets/data/commonData';
 import { Empty } from 'antd';
 import '../assets/css/Detail.css';
 
-// 将 Bilibili 视频链接转换为嵌入链接
+// 将 Bilibili 视频链接转换为嵌入链接（仅支持 B 站）
 const getBilibiliEmbedUrl = (url) => {
   if (!url) return '';
-  
-  // 提取 BV 号
-  const bvidMatch = url.match(/BV[\w]+/);
-  if (bvidMatch) {
-    const bvid = bvidMatch[0];
-    return `https://player.bilibili.com/player.html?bvid=${bvid}&autoplay=0`;
-  }
-  
-  // 如果不是 Bilibili 链接，返回原链接（可用于其他视频平台）
-  return url;
+  const bvid = (url.match(/BV[\w]+/) || [])[0];
+  return bvid ? `https://player.bilibili.com/player.html?bvid=${bvid}&autoplay=0` : '';
 };
 
 const ArchiveDetail = () => {
