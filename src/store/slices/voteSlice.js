@@ -14,11 +14,11 @@ const voteSlice = createSlice({
   initialState,
   reducers: {
     vote: (state, action) => {
-      const optionId = action.payload;
-      const option = state.options.find(opt => opt.id === optionId);
-      if (option) {
-        option.votes += 1;
-      }
+        const optionId = action.payload;
+        const option = state.options.find(opt => opt.id === optionId);
+        if (option) {
+          option.votes += 1;
+        }
     },
   },
 });

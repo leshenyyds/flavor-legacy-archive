@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage/session'; // 使用 sessionStorage
+import storage from 'redux-persist/lib/storage/session';
 import commentsReducer from './slices/commentsSlice';
 import voteReducer from './slices/voteSlice';
 
